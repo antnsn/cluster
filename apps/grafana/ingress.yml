@@ -7,13 +7,13 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: "nagato.home"
+  - host: nagato.home
     http:
       paths:
       - pathType: Prefix
-        path: "/grafana"
+        path: /grafana
         backend:
           service:
             name: grafana
             port:
-              number: 80
+              number: 3000
