@@ -13,6 +13,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: grafana
+            name: svclb-grafana
             port:
-              name: http-grafana
+              name: lb-port-3000
