@@ -6,11 +6,11 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: nagato.home
+  - host: "nagato.home"
     http:
       paths:
-      - path: /grafana
-        pathType: Exact
+      - pathType: Prefix
+        path: "/grafana"
         backend:
           service:
             name: grafana
