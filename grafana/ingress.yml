@@ -15,4 +15,4 @@ spec:
           service:
             name: grafana
             port:
-              name: http-grafana
+              number: 80
