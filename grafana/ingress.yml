@@ -1,17 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  labels:
   name: grafana-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
 spec:
   rules:
-    - host: nagato.home
-      http:
-        paths:
-          - backend:
-              service:
-                name: http-grafana
-                port:
-                  number: 3000
-            path: /grafana
-            pathType: Prefix
+  - host: nagato.home
+    http:
+      paths:
+      - path: /grafana
+        pathType: Prefix
+        backend:
+          service:
+            name: grafana
+            port:
+              name: http-grafana
