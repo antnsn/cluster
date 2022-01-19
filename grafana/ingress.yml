@@ -15,4 +15,4 @@ spec:
           service:
             name: grafana
             port:
-              number: 3100
+              number: 80
