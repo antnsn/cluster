@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: prowlarr
+  name: prowlarr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prowlarr
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: prowlarr
+    spec:
+      containers:
+        - env:
+            - name: PGID
+              value: "1000"
+            - name: PUID
+              value: "1000"
+            - name: TZ
+              value: Europe/Oslo
+          image: ghcr.io/linuxserver/prowlarr:develop
+          name: prowlarr
+          ports:
+            - containerPort: 9696
+          resources: {}
+          volumeMounts:
+            - mountPath: /config
+              name: pvc-prowlarr-config
+      restartPolicy: Always
+      volumes:
+        - name: pvc-prowlarr-config
+          persistentVolumeClaim:
+            claimName: pvc-prowlarr-config
+status: {}
