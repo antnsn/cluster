@@ -5,6 +5,7 @@ metadata:
   labels:
     app: plex
   name: plex
+
 spec:
   selector:
     matchLabels:
@@ -18,9 +19,9 @@ spec:
         - name: plex
           image: ghcr.io/linuxserver/plex
           imagePullPolicy: IfNotPresent
-          # resources:
-          #   limits:
-          #     nvidia.com/gpu: 1 # requesting 2 GPUs          
+          resources:
+            limits:
+              nvidia.com/gpu: 1 # requesting 2 GPUs          
           ports:
             - containerPort: 32400
               name: http-plex
