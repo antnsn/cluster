@@ -1,19 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.26.0 (40646f47)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: prowlarr
-  name: prowlarr
+  name: svc-prowlarr
+  namespace: downloads
 spec:
   ports:
-    - name: "9696"
-      port: 9696
-      targetPort: 9696
+    - port: 9696
+      protocol: TCP
+      targetPort: http-prowlarr
   selector:
-    io.kompose.service: prowlarr
-status:
-  loadBalancer: {}
+    app: prowlarr      
+

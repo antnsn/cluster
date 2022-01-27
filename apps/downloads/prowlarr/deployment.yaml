@@ -1,40 +1,57 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
     app: prowlarr
   name: prowlarr
+  namespace: downloads  
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: prowlarr
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
         app: prowlarr
     spec:
       containers:
-        - env:
-            - name: PGID
-              value: "1000"
-            - name: PUID
-              value: "1000"
-            - name: TZ
-              value: Europe/Oslo
+        - name: prowlarr
           image: ghcr.io/linuxserver/prowlarr:develop
-          name: prowlarr
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9696
-          resources: {}
+              name: http-prowlarr
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /robots.txt
+              port: 9696
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 2
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 9696
+            timeoutSeconds: 1
           volumeMounts:
-            - mountPath: /config
-              name: pvc-prowlarr-config
-      restartPolicy: Always
+            - mountPath: /var/lib/grafana
+              name: grafana-pv
+          env:
+           - name: PGID
+             value: "1000"
+           - name: PUID
+             value: "1000"
+           - name: TZ
+             value: Europe/Oslo    
       volumes:
-        - name: pvc-prowlarr-config
+        - name: prowlarr-pv
           persistentVolumeClaim:
             claimName: pvc-prowlarr-config
-status: {}

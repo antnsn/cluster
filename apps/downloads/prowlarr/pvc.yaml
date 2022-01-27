@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    app: pvc-prowlarr-config
+    app: prowlarr
   name: pvc-prowlarr-config
 spec:
   accessModes:
