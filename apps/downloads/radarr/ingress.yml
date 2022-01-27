@@ -16,4 +16,4 @@ spec:
           service:
             name: svc-radarr
             port:
-              number: 9696
+              number: 7878
