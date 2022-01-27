@@ -15,6 +15,6 @@ spec:
         path: /grafana
         backend:
           service:
-            name: grafana
+            name: svc-grafana
             port:
               number: 3000
