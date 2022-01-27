@@ -42,8 +42,8 @@ spec:
               port: 9696
             timeoutSeconds: 1
           volumeMounts:
-            - mountPath: /var/lib/grafana
-              name: grafana-pv
+            - mountPath: /config
+              name: prowlarr-pv
           env:
            - name: PGID
              value: "1000"
