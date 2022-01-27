@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: plex
+  name: plex
+  namespace: media  
+spec:
+  selector:
+    matchLabels:
+      app: plex
+  template:
+    metadata:
+      labels:
+        app: plex
+    spec:
+      containers:
+        - name: plex
+          image: ghcr.io/linuxserver/plex
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              nvidia.com/gpu: 1 # requesting 2 GPUs          
+          ports:
+            - containerPort: 32400
+              name: http-plex
+              protocol: TCP
+          # readinessProbe:
+          #   failureThreshold: 3
+          #   httpGet:
+          #     path: /robots.txt
+          #     port: 9696
+          #     scheme: HTTP
+          #   initialDelaySeconds: 10
+          #   periodSeconds: 30
+          #   successThreshold: 1
+          #   timeoutSeconds: 2
+          # livenessProbe:
+          #   failureThreshold: 5
+          #   initialDelaySeconds: 50
+          #   periodSeconds: 20
+          #   successThreshold: 1
+          #   tcpSocket:
+          #     port: 9696
+          #   timeoutSeconds: 1
+          volumeMounts:
+            - mountPath: /config
+              name: plex-pv
+          env:
+           - name: PGID
+             value: "1000"
+           - name: PUID
+             value: "1000"
+           - name: TZ
+             value: Europe/Oslo    
+      volumes:
+        - name: plex-pv
+          persistentVolumeClaim:
+            claimName: pvc-plex-config

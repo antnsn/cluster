@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: plex-ingress
+  namespace: downloads  
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: plex.ting
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: svc-plex
+            port:
+              number: 32400
