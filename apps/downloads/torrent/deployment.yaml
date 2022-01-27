@@ -1,28 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.26.0 (40646f47)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: arch-rtorrentvpn
-  name: arch-rtorrentvpn
+  name: rtorrentvpn
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: arch-rtorrentvpn
+      app: rtorrentvpn
   strategy:
     type: Recreate
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert
-        kompose.version: 1.26.0 (40646f47)
-      creationTimestamp: null
       labels:
-        io.kompose.service: arch-rtorrentvpn
+        app: rtorrentvpn
     spec:
       containers:
         - env:
@@ -83,22 +72,13 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /data
-              name: arch-rtorrentvpn-claim0
+              name: pvc-rtorrentvpn-downloads
             - mountPath: /config
-              name: arch-rtorrentvpn-claim1
-            - mountPath: /etc/localtime
-              name: arch-rtorrentvpn-claim2
-              readOnly: true
+              name: pvc-rtorrentvpn-config
       restartPolicy: Always
       volumes:
-        - name: arch-rtorrentvpn-claim0
+        - name: pvc-rtorrentvpn
           persistentVolumeClaim:
-            claimName: arch-rtorrentvpn-claim0
-        - name: arch-rtorrentvpn-claim1
-          persistentVolumeClaim:
-            claimName: arch-rtorrentvpn-claim1
-        - name: arch-rtorrentvpn-claim2
-          persistentVolumeClaim:
-            claimName: arch-rtorrentvpn-claim2
-            readOnly: true
+            claimName: pvc-rtorrentvpn-downloads
+            readOnly: false
 status: {}
