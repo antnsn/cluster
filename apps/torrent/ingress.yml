@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rtorrentvpn-ingress
+  namespace: monitoring  
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: torrent.ting
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: svc-rtorrentvpn
+            port:
+              number: 3000

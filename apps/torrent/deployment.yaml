@@ -1,0 +1,104 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: arch-rtorrentvpn
+  name: arch-rtorrentvpn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: arch-rtorrentvpn
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: arch-rtorrentvpn
+    spec:
+      containers:
+        - env:
+            - name: DEBUG
+              value: "false"
+            - name: ENABLE_AUTODL_IRSSI
+              value: "yes"
+            - name: ENABLE_PRIVOXY
+              value: "yes"
+            - name: ENABLE_RPC2
+              value: "yes"
+            - name: ENABLE_RPC2_AUTH
+              value: "yes"
+            - name: ENABLE_WEBUI_AUTH
+              value: "yes"
+            - name: LAN_NETWORK
+              value: 192.168.1.0/24
+            - name: NAME_SERVERS
+              value: 84.200.69.80,37.235.1.174,1.1.1.1,37.235.1.177,84.200.70.40,1.0.0.1
+            - name: PGID
+              value: "0"
+            - name: PHP_TZ
+              value: UTC
+            - name: PUID
+              value: "0"
+            - name: RPC2_PASS
+              value: NzRhMjE4NjUzZDYw
+            - name: RPC2_USER
+              value: admin
+            - name: STRICT_PORT_FORWARD
+              value: "yes"
+            - name: UMASK
+              value: "000"
+            - name: VPN_CLIENT
+              value: openvpn
+            - name: VPN_ENABLED
+              value: "yes"
+            - name: VPN_INPUT_PORTS
+              value: "1234"
+            - name: VPN_OUTPUT_PORTS
+              value: "5678"
+            - name: VPN_PASS
+              value: mypassword
+            - name: VPN_PROV
+              value: pia
+            - name: VPN_USER
+              value: myusername
+            - name: WEBUI_PASS
+              value: NzRhMjE4NjUzZDYw
+            - name: WEBUI_USER
+              value: admin
+          image: binhex/arch-rtorrentvpn
+          name: rtorrentvpn
+          ports:
+            - containerPort: 9080
+            - containerPort: 9443
+            - containerPort: 8118
+          resources: {}
+          volumeMounts:
+            - mountPath: /data
+              name: arch-rtorrentvpn-claim0
+            - mountPath: /config
+              name: arch-rtorrentvpn-claim1
+            - mountPath: /etc/localtime
+              name: arch-rtorrentvpn-claim2
+              readOnly: true
+      restartPolicy: Always
+      volumes:
+        - name: arch-rtorrentvpn-claim0
+          persistentVolumeClaim:
+            claimName: arch-rtorrentvpn-claim0
+        - name: arch-rtorrentvpn-claim1
+          persistentVolumeClaim:
+            claimName: arch-rtorrentvpn-claim1
+        - name: arch-rtorrentvpn-claim2
+          persistentVolumeClaim:
+            claimName: arch-rtorrentvpn-claim2
+            readOnly: true
+status: {}
