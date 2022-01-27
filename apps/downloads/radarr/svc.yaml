@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-radarr
+  namespace: downloads
+spec:
+  ports:
+    - port: 9696
+      protocol: TCP
+      targetPort: http-radarr
+  selector:
+    app: radarr      
+
