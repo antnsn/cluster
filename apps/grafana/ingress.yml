@@ -9,11 +9,11 @@ metadata:
     #traefik.ingress.kubernetes.io/app-root: /grafana
 spec:
   rules:
-  - host: nagato.home
+  - host: grafana.ting
     http:
       paths:
       - pathType: Prefix
-        path: /grafana
+        path: /
         backend:
           service:
             name: svc-grafana
