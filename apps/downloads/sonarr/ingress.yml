@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: filmer.ting
+  - host: radarr.ting
     http:
       paths:
       - pathType: Prefix
