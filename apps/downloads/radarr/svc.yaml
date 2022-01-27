@@ -5,7 +5,7 @@ metadata:
   namespace: downloads
 spec:
   ports:
-    - port: 9696
+    - port: 7878
       protocol: TCP
       targetPort: http-radarr
   selector:
