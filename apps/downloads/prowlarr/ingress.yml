@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: rtorrentvpn-ingress
+  name: prowlarr-ingress
   namespace: downloads  
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: torrent.ting
+  - host: prowlarr.ting
     http:
       paths:
       - pathType: Prefix
         path: /
         backend:
           service:
-            name: svc-rtorrentvpn
+            name: svc-prowlarr
             port:
-              number: 8118
+              number: 9696
