@@ -6,13 +6,14 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
     #traefik.ingress.kubernetes.io/rewrite-target: /$1
+    traefik.ingress.kubernetes.io/app-root: /grafana
 spec:
   rules:
   - host: nagato.home
     http:
       paths:
       - pathType: Prefix
-        path: /grafana
+        path: /
         backend:
           service:
             name: svc-grafana
