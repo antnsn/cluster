@@ -5,7 +5,6 @@ metadata:
   labels:
     app: plex
   name: plex
-  namespace: media  
 spec:
   selector:
     matchLabels:
