@@ -30,7 +30,7 @@ spec:
             failureThreshold: 3
             httpGet:
               path: /robots.txt
-              port: 9696
+              port: 32400
               scheme: HTTP
             initialDelaySeconds: 10
             periodSeconds: 30
@@ -42,7 +42,7 @@ spec:
             periodSeconds: 20
             successThreshold: 1
             tcpSocket:
-              port: 9696
+              port: 32400
             timeoutSeconds: 1
           volumeMounts:
             - mountPath: /config
