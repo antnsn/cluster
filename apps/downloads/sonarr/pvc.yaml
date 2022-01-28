@@ -8,7 +8,7 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 1500Gi
+      storage: 10Gi
   volumeName: pv-nfs-sonarr-config
 ---
 apiVersion: v1
@@ -21,7 +21,7 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 1500Gi
+      storage: 2000Gi
   volumeName: pv-nfs-sonarr-tvshows
 ---
 apiVersion: v1
@@ -34,6 +34,6 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 1500Gi
+      storage: 150Gi
   volumeName: pv-nfs-sonarr-downloads
 

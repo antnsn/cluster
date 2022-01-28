@@ -19,7 +19,7 @@ metadata:
   name: pv-nfs-sonarr-tvshows
 spec:
   capacity:
-    storage: 10Gi
+    storage: 2000Gi
   accessModes:
     - ReadWriteMany
   nfs:
@@ -34,7 +34,7 @@ metadata:
   name: pv-nfs-sonarr-downloads
 spec:
   capacity:
-    storage: 10Gi
+    storage: 150Gi
   accessModes:
     - ReadWriteMany
   nfs:

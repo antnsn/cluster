@@ -8,7 +8,7 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 1500Gi
+      storage: 10Gi
   volumeName: pv-nfs-radarr-config
 ---
 apiVersion: v1
