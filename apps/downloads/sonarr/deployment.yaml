@@ -44,6 +44,10 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: sonarr-config
+            - mountPath: /tv
+              name: sonarr-tvshows
+            - mountPath: /downloads
+              name: sonarr-downloads                            
           env:
            - name: PGID
              value: "1000"
@@ -55,3 +59,9 @@ spec:
         - name: sonarr-config
           persistentVolumeClaim:
             claimName: pvc-sonarr-config
+        - name: sonarr-tvshows
+          persistentVolumeClaim:
+            claimName: pvc-sonarr-tvshows
+        - name: sonarr-downloads
+          persistentVolumeClaim:
+            claimName: pvc-sonarr-downloads                        
