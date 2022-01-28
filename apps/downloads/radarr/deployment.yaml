@@ -59,7 +59,7 @@ spec:
         - name: radarr-config
           persistentVolumeClaim:
             claimName: pvc-radarr-config
-        - name: radarr-tvshows
+        - name: radarr-movies
           persistentVolumeClaim:
             claimName: pvc-radarr-movies
         - name: radarr-downloads
