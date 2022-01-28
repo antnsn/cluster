@@ -32,7 +32,7 @@ spec:
               path: /web/index.html#!/
               port: 32400
               scheme: HTTP
-            initialDelaySeconds: 10
+            initialDelaySeconds: 60
             periodSeconds: 30
             successThreshold: 1
             timeoutSeconds: 2
