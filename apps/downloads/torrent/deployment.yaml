@@ -118,3 +118,5 @@ spec:
           resources:
             requests:
               storage: 10Gi                   
+
+Resource storage.k8s.io:StorageClass is not permitted in project downloads.              
