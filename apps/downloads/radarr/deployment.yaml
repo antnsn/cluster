@@ -5,7 +5,7 @@ metadata:
   labels:
     app: radarr
   name: radarr
-  namespace: downloads  
+  namespace: radarr  
 spec:
   selector:
     matchLabels:
