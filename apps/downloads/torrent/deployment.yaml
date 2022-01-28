@@ -72,9 +72,7 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /data
-              name: smb-rtorrentvpn-downloads
-              annotations:
-                volume.beta.kubernetes.io/storage-class: smb              
+              name: smb-rtorrentvpn-downloads          
             - mountPath: /config
               name: pvc-rtorrentvpn-config
       restartPolicy: Always
@@ -83,4 +81,13 @@ spec:
           persistentVolumeClaim:
             claimName: pvc-rtorrentvpn-downloads
             readOnly: false
-status: {}
+    volumeClaimTemplates:
+      - metadata:
+          name: smb-rtorrentvpn-downloads  
+          annotations:
+            volume.beta.kubernetes.io/storage-class: smb
+        spec:
+          accessModes: ["ReadWriteMany"]
+          resources:
+            requests:
+              storage: 10Gi            
