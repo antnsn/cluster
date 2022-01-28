@@ -1,24 +1,27 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-rtorrentvpn-downloads
+  name: pvc-torrent-downloads
 spec:
   accessModes:
-    - ReadOnlyMany
+    - ReadWriteMany
+  storageClassName: ""
   resources:
     requests:
-      storage: 100Mi
-status: {}
+      storage: 1500Gi
+  volumeName: pv-nfs-torrent-downloads
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-rtorrentvpn-config
+  name: pvc-torrent-config
 spec:
   accessModes:
-    - ReadOnlyMany
+    - ReadWriteMany
+  storageClassName: ""
   resources:
     requests:
-      storage: 100Mi
-status: {}
+      storage: 1500Gi
+  volumeName: pv-nfs-torrent-config
+---
 

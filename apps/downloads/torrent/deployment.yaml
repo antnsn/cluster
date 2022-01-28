@@ -49,9 +49,9 @@ spec:
             timeoutSeconds: 1
           volumeMounts:
             - mountPath: /data
-              name: smb-rtorrentvpn-downloads          
+              name: torrent-downloads        
             - mountPath: /config
-              name: pvc-rtorrentvpn-config
+              name: torrent-config
           env:
            - name: DEBUG
              value: "false"
@@ -104,19 +104,11 @@ spec:
            - name: TZ
              value: Europe/Oslo    
       volumes:
-        - name: pvc-rtorrentvpn
+        - name: torrent-config
           persistentVolumeClaim:
-            claimName: pvc-rtorrentvpn-downloads
-            readOnly: false
-    volumeClaimTemplates:
-      - metadata:
-          name: smb-rtorrentvpn-downloads  
-          annotations:
-            volume.beta.kubernetes.io/storage-class: smb
-        spec:
-          accessModes: ["ReadWriteMany"]
-          resources:
-            requests:
-              storage: 10Gi                   
+            claimName: pvc-torrent-config
+        - name: torrent-downloads
+          persistentVolumeClaim:
+            claimName: pvc-torrent-downloads                
 
-Resource storage.k8s.io:StorageClass is not permitted in project downloads.              
+         
