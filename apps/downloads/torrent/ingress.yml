@@ -4,7 +4,8 @@ metadata:
   name: rtorrentvpn-ingress
   namespace: downloads  
   annotations:
-    kubernetes.io/ingress.class: nginx
+    #kubernetes.io/ingress.class: nginx  
+    kubernetes.io/ingress.class: public
 spec:
   rules:
   - host: torrent.ting

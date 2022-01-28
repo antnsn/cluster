@@ -4,7 +4,8 @@ metadata:
   name: prowlarr-ingress
   namespace: downloads  
   annotations:
-    kubernetes.io/ingress.class: nginx
+    #kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: public
 spec:
   rules:
   - host: prowlarr.ting
