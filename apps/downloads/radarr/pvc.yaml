@@ -17,6 +17,7 @@ metadata:
   labels:
     app: radarr
   name: pvc-radarr-config
+  namespace: radarr  
 spec:
   accessModes:
     - ReadWriteOnce
@@ -30,6 +31,7 @@ metadata:
   labels:
     app: radarr
   name: pvc-radarr-movies
+  namespace: radarr  
 spec:
   accessModes:
     - ReadWriteMany
@@ -46,6 +48,7 @@ metadata:
   labels:
     app: radarr
   name: pvc-radarr-downloads
+  namespace: radarr  
 spec:
   accessModes:
     - ReadWriteMany
