@@ -53,7 +53,7 @@ spec:
               name: plex-movies                            
           env:
            - name: PLEX_CLAIM
-             value: "claim-mrRZu8W6q5gyiYmjf4iQ"          
+             value: "Qss5b1pc6Zh9gBhb31cp"          
            - name: VERSION
              value: "public"          
            - name: PGID
