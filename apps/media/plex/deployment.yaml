@@ -51,9 +51,7 @@ spec:
               name: plex-tv
             - mountPath: /movies
               name: plex-movies                            
-          env:
-           - name: PLEX_CLAIM
-             value: "Qss5b1pc6Zh9gBhb31cp"          
+          env:      
            - name: VERSION
              value: "public"          
            - name: PGID
