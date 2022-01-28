@@ -27,6 +27,8 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  labels:
+    app: radarr
   name: pvc-radarr-movies
 spec:
   accessModes:
@@ -41,6 +43,8 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  labels:
+    app: radarr
   name: pvc-radarr-downloads
 spec:
   accessModes:
