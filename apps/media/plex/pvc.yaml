@@ -12,31 +12,29 @@ spec:
       storage: 100Mi
 ---
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistentVolumeClaim
 metadata:
-  labels:
-    app: plex
   name: pvc-plex-movies
 spec:
-  capacity:
-    storage: 1500Gi
   accessModes:
     - ReadWriteMany
-  hostPath:
-    path: "/mnt/movies"
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 10Gi
+  volumeName: pv-nfs-plex-movies
 ---
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistentVolumeClaim
 metadata:
-  labels:
-    app: plex
   name: pvc-plex-tvshows
 spec:
-  capacity:
-    storage: 1500Gi
   accessModes:
     - ReadWriteMany
-  hostPath:
-    path: "/mnt/tvshows"
-
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 10Gi
+  volumeName: pv-nfs-plex-tvshows
+  
 
