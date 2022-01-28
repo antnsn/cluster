@@ -21,18 +21,12 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9080
-              name: http-rtorrentvpn
-              protocol: TCP
             - containerPort: 9443
-              name: https-rtorrentvpn
-              protocol: TCP    
-            - containerPort: 8118
-              name: vpn-rtorrentvpn
-              protocol: TCP                           
+            - containerPort: 8118                       
           readinessProbe:
             failureThreshold: 3
             httpGet:
-              path: /robots.txt
+              path: /
               port: 8989
               scheme: HTTP
             initialDelaySeconds: 10
