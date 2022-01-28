@@ -63,8 +63,8 @@ spec:
           persistentVolumeClaim:
             claimName: pvc-plex-config
         - name: plex-tv
-          persistentVolume:
+          persistentVolumeClaim:
             claimName: pvc-plex-tvshows
         - name: plex-movies
-          persistentVolume:
+          persistentVolumeClaim:
             claimName: pvc-plex-movies                        
