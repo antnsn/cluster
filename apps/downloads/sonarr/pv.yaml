@@ -1,17 +1,17 @@
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: pv-nfs-sonarr-config
-spec:
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteMany
-  nfs:
-    server: madara.home
-    path: "/volume1/share/k8s-config/sonarr"
-  mountOptions:
-    - nfsvers=4.1
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   name: pv-nfs-sonarr-config
+# spec:
+#   capacity:
+#     storage: 10Gi
+#   accessModes:
+#     - ReadWriteMany
+#   nfs:
+#     server: madara.home
+#     path: "/volume1/share/k8s-config/sonarr"
+#   mountOptions:
+#     - nfsvers=4.1
 ---
 apiVersion: v1
 kind: PersistentVolume
