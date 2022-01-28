@@ -46,7 +46,11 @@ spec:
             timeoutSeconds: 1
           volumeMounts:
             - mountPath: /config
-              name: plex-pv
+              name: plex-config
+            - mountPath: /tv
+              name: plex-tv
+            - mountPath: /movies
+              name: plex-movies                            
           env:
            - name: PGID
              value: "1000"
@@ -55,6 +59,12 @@ spec:
            - name: TZ
              value: Europe/Oslo    
       volumes:
-        - name: plex-pv
+        - name: plex-config
           persistentVolumeClaim:
             claimName: pvc-plex-config
+        - name: plex-tv
+          persistentVolumeClaim:
+            claimName: pvc-plex-tvshows
+        - name: plex-movies
+          persistentVolumeClaim:
+            claimName: pvc-plex-movies                        
