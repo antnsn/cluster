@@ -52,6 +52,8 @@ spec:
             - mountPath: /movies
               name: plex-movies                            
           env:
+           - name: VERSION
+             value: "public"          
            - name: PGID
              value: "1000"
            - name: PUID
