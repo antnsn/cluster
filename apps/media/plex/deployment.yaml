@@ -29,7 +29,7 @@ spec:
           readinessProbe:
             failureThreshold: 3
             httpGet:
-              path: /
+              path: /web/index.html#!/
               port: 32400
               scheme: HTTP
             initialDelaySeconds: 10
