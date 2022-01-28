@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: plex
-          image: ghcr.io/linuxserver/plex
+          image: ghcr.io/linuxserver/plex:latest
           imagePullPolicy: IfNotPresent
           # resources:
           #   limits:
