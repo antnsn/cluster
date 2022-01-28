@@ -4,7 +4,7 @@ metadata:
   name: pv-nfs-plex-movies
 spec:
   capacity:
-    storage: 1Mi
+    storage: 10Gi
   accessModes:
     - ReadWriteMany
   nfs:
@@ -19,7 +19,7 @@ metadata:
   name: pv-nfs-plex-tvshows
 spec:
   capacity:
-    storage: 1Mi
+    storage: 10Gi
   accessModes:
     - ReadWriteMany
   nfs:
