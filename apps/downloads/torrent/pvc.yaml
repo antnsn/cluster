@@ -22,3 +22,21 @@ spec:
       storage: 100Mi
 status: {}
 
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: smb-rtorrentvpn-downloads
+provisioner: smb.csi.k8s.io
+parameters:
+  source: "//madara/share/downloads"
+  csi.storage.k8s.io/node-stage-secret-name: "madara"
+  csi.storage.k8s.io/node-stage-secret-namespace: "default"
+  createSubDir: "false"    # optional: create a sub dir for new volume
+reclaimPolicy: Retain      # only Retain is supported
+volumeBindingMode: Immediate
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1001
+  - gid=1001

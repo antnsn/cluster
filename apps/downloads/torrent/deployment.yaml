@@ -72,7 +72,9 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /data
-              name: pvc-rtorrentvpn-downloads
+              name: smb-rtorrentvpn-downloads
+              annotations:
+                volume.beta.kubernetes.io/storage-class: smb              
             - mountPath: /config
               name: pvc-rtorrentvpn-config
       restartPolicy: Always
