@@ -29,7 +29,7 @@ spec:
           readinessProbe:
             failureThreshold: 3
             httpGet:
-              path: /robots.txt
+              path: /
               port: 32400
               scheme: HTTP
             initialDelaySeconds: 10
