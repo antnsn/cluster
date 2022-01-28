@@ -16,10 +16,10 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv-nfs-radarr-tvshows
+  name: pv-nfs-radarr-movies
 spec:
   capacity:
-    storage: 10Gi
+    storage: 2000Gi
   accessModes:
     - ReadWriteMany
   nfs:
@@ -34,7 +34,7 @@ metadata:
   name: pv-nfs-radarr-downloads
 spec:
   capacity:
-    storage: 10Gi
+    storage: 150Gi
   accessModes:
     - ReadWriteMany
   nfs:

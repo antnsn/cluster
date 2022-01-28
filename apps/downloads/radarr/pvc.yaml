@@ -21,7 +21,7 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 1500Gi
+      storage: 2000Gi
   volumeName: pv-nfs-radarr-movies
 ---
 apiVersion: v1
@@ -34,6 +34,6 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 1500Gi
+      storage: 150Gi
   volumeName: pv-nfs-radarr-downloads
 
