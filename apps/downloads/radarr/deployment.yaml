@@ -44,6 +44,10 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: radarr-config
+            - mountPath: /movies
+              name: radarr-movies
+            - mountPath: /downloads
+              name: radarr-downloads      
           env:
            - name: PGID
              value: "1000"
@@ -55,3 +59,9 @@ spec:
         - name: radarr-config
           persistentVolumeClaim:
             claimName: pvc-radarr-config
+        - name: radarr-tvshows
+          persistentVolumeClaim:
+            claimName: pvc-radarr-movies
+        - name: radarr-downloads
+          persistentVolumeClaim:
+            claimName: pvc-radarr-downloads      
