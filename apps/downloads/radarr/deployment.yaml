@@ -43,7 +43,7 @@ spec:
             timeoutSeconds: 1
           volumeMounts:
             - mountPath: /config
-              name: radarr-pv
+              name: radarr-config
           env:
            - name: PGID
              value: "1000"
@@ -52,6 +52,6 @@ spec:
            - name: TZ
              value: Europe/Oslo    
       volumes:
-        - name: radarr-pv
+        - name: radarr-config
           persistentVolumeClaim:
             claimName: pvc-radarr-config
