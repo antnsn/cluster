@@ -1,8 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
+  labels:
+    app: sonarr
+  namespace: sonarr  
   name: svc-sonarr
-  namespace: downloads
 spec:
   ports:
     - port: 8989
