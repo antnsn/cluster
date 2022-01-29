@@ -43,7 +43,7 @@
 #     requests:
 #       storage: 10Gi
 #   volumeName: pv-nfs-plex-tvshows
-  ---
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -57,7 +57,7 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 10Gi
+      storage: 1500Gi
   volumeName: pv-nfs-plex-media
   
 
