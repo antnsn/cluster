@@ -60,7 +60,7 @@ spec:
         - name: plex-config
           persistentVolumeClaim:
             claimName: pvc-plex-config
-        - name: plex-tv
+        - name: plex-transcode
           persistentVolumeClaim:
             claimName: pvc-plex-transcode
         - name: plex-data
