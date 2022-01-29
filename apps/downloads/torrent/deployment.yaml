@@ -120,6 +120,8 @@ spec:
             - mountPath: /config
               name: torrent-config
           env:
+           - name: host
+             value: "0.0.0.0"          
            - name: HOME
              value: "/config"
            - name: TZ
