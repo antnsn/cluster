@@ -9,7 +9,7 @@
 #     - ReadWriteMany
 #   nfs:
 #     server: madara.home
-#     path: "/volume1/share/k8s-config/sonarr"
+#     path: "/volume1/share/k8s-config/sonarr/"
 #   mountOptions:
 #     - nfsvers=4.1
 ---
@@ -27,7 +27,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: madara.home
-    path: "/volume1/share/tvshows"
+    path: "/volume1/share/tvshows/"
   mountOptions:
     - nfsvers=4.1
 --- 
@@ -45,7 +45,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: madara.home
-    path: "/volume1/share/downloads/complete/tvshows"
+    path: "/volume1/share/downloads/complete/tvshows/"
   mountOptions:
     - nfsvers=4.1
 ---       
