@@ -5,7 +5,7 @@ metadata:
   labels:
     app: torrent
   namespace: torrent 
-  name: rtorrentvpn
+  name: rutorrent
 spec:
   selector:
     matchLabels:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - image: romancin/rutorrent-flood:latest
-          name: rtorrent
+          name: rutorrent
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 443   

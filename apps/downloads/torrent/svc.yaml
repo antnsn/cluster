@@ -4,7 +4,7 @@ metadata:
   labels:
     app: torrent
   namespace: torrent 
-  name: svc-rtorrentvpn
+  name: svc-rutorrent
 spec:
   ports:
   ports:
