@@ -55,7 +55,7 @@ spec:
            - name: TZ
              value: Europe/Oslo    
            - name: PLEX_CLAIM
-             value: cclaim-HEkM7WmPFkSAfns3LAyi          
+             value: claim-f3mo7A2JY48PixXJr-49         
       volumes:
         - name: plex-config
           persistentVolumeClaim:
