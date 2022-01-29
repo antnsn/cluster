@@ -55,11 +55,11 @@ spec:
            - name: TZ
              value: Europe/Oslo    
            - name: PLEX_CLAIM
-             value: claim-NiDxysMxJ9c__u7Ksssp       
+             value: claim-5z6jVj2QzKcuuQrRvorw      
            - name: PLEX_UID
-             value: 0
+             value: "0"
            - name: PLEX_GID
-             value: 0             
+             value: "0"            
       volumes:
         - name: plex-config
           persistentVolumeClaim:
