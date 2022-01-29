@@ -23,24 +23,24 @@ spec:
             - containerPort: 8989
               name: http-sonarr
               protocol: TCP
-          # readinessProbe:
-          #   failureThreshold: 3
-          #   httpGet:
-          #     path: /robots.txt
-          #     port: 8989
-          #     scheme: HTTP
-          #   initialDelaySeconds: 120
-          #   periodSeconds: 30
-          #   successThreshold: 1
-          #   timeoutSeconds: 2
-          # livenessProbe:
-          #   failureThreshold: 3
-          #   initialDelaySeconds: 30
-          #   periodSeconds: 10
-          #   successThreshold: 1
-          #   tcpSocket:
-          #     port: 8989
-          #   timeoutSeconds: 1
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /robots.txt
+              port: 8989
+              scheme: HTTP
+            initialDelaySeconds: 120
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 2
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 8989
+            timeoutSeconds: 1
           volumeMounts:
             - mountPath: /config
               name: sonarr-config
