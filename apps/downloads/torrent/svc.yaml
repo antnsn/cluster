@@ -18,8 +18,8 @@ spec:
     - name: "51415"
       port: 51415
       targetPort: 51415-torrent
-    - name: "3000"
+    - name: "flood"
       port: 3000 
-      targetPort: 3000-torrent
+      targetPort: flood-torrent
   selector:
     app: torrent   

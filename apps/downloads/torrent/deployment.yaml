@@ -26,7 +26,7 @@ spec:
               name: https-torrent
               protocol: TCP
             - containerPort: 3000   
-              name: 3000-torrent
+              name: flood-torrent
               protocol: TCP     
             - containerPort: 51415   
               name: 51415-torrent
