@@ -56,6 +56,10 @@ spec:
              value: Europe/Oslo    
            - name: PLEX_CLAIM
              value: claim-f3mo7A2JY48PixXJr-49         
+           - name: PLEX_UID
+             value: 0
+           - name: PLEX_GID
+             value: 0             
       volumes:
         - name: plex-config
           persistentVolumeClaim:
