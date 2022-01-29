@@ -1,0 +1,72 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: emby
+  namespace: emby    
+  name: emby
+spec:
+  selector:
+    matchLabels:
+      app: emby
+  template:
+    metadata:
+      labels:
+        app: emby
+    spec:
+      containers:
+        - name: emby
+          image: linuxserver/emby:amd64-latest
+          imagePullPolicy: IfNotPresent
+          # resources:
+          #   limits:
+          #     nvidia.com/gpu: 1 # requesting 1 GPUs          
+          ports:
+            - containerPort: 8096
+              name: http-emby
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /web/index.html#!/
+              port: 8096
+              scheme: HTTP
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 2
+          livenessProbe:
+            failureThreshold: 5
+            initialDelaySeconds: 50
+            periodSeconds: 20
+            successThreshold: 1
+            tcpSocket:
+              port: 8096
+            timeoutSeconds: 1
+          volumeMounts:
+            - mountPath: /config
+              name: emby-config
+            - mountPath: /transcode
+              name: emby-transcode              
+            - mountPath: /data
+              name: emby-data                          
+          env:      
+           - name: TZ
+             value: Europe/Oslo    
+           - name: PUID
+             value: "1000"
+           - name: PGID
+             value: "1000"
+           - name: VERSION
+             value: "docker"                         
+      volumes:
+        - name: emby-config
+          persistentVolumeClaim:
+            claimName: pvc-emby-config
+        - name: emby-transcode
+          persistentVolumeClaim:
+            claimName: pvc-emby-transcode
+        - name: emby-data
+          persistentVolumeClaim:
+            claimName: pvc-emby-data                        

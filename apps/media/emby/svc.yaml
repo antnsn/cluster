@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: emby
+  namespace: emby
+  name: svc-emby
+spec:
+  ports:
+    - port: 8096
+      protocol: TCP
+      targetPort: http-emby
+  selector:
+    app: emby      
+
