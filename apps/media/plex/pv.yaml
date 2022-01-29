@@ -1,36 +1,53 @@
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   labels:
+#     app: plex
+#   namespace: plex
+#   name: pv-nfs-plex-movies
+# spec:
+#   capacity:
+#     storage: 10Gi
+#   accessModes:
+#     - ReadWriteMany
+#   nfs:
+#     server: madara.home
+#     path: "/volume1/share/movies"
+#   mountOptions:
+#     - nfsvers=4.1
+# --- 
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   labels:
+#     app: plex
+#   namespace: plex
+#   name: pv-nfs-plex-tvshows
+# spec:
+#   capacity:
+#     storage: 10Gi
+#   accessModes:
+#     - ReadWriteMany
+#   nfs:
+#     server: madara.home
+#     path: "/volume1/share/tvshows"
+#   mountOptions:
+#     - nfsvers=4.1
+# ---       
 apiVersion: v1
 kind: PersistentVolume
 metadata:
   labels:
     app: plex
   namespace: plex
-  name: pv-nfs-plex-movies
+  name: pv-nfs-plex-media
 spec:
   capacity:
-    storage: 10Gi
+    storage: 3000Gi
   accessModes:
     - ReadWriteMany
   nfs:
     server: madara.home
-    path: "/volume1/share/movies"
+    path: "/volume1/share/"
   mountOptions:
     - nfsvers=4.1
---- 
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  labels:
-    app: plex
-  namespace: plex
-  name: pv-nfs-plex-tvshows
-spec:
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteMany
-  nfs:
-    server: madara.home
-    path: "/volume1/share/tvshows"
-  mountOptions:
-    - nfsvers=4.1
----       
