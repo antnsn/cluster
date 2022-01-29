@@ -55,7 +55,7 @@ spec:
            - name: TZ
              value: Europe/Oslo    
            - name: PLEX_CLAIM
-             value: claim-f3mo7A2JY48PixXJr-49         
+             value: claim-NiDxysMxJ9c__u7Ksssp       
            - name: PLEX_UID
              value: 0
            - name: PLEX_GID
