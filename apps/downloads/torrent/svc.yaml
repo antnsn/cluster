@@ -7,16 +7,15 @@ metadata:
   name: svc-rtorrentvpn
 spec:
   ports:
-    - name: "9080"
-      port: 9080
-      targetPort: 9080
-    - name: "9443"
-      port: 9443
-      targetPort: 9443
-    - name: "8118"
-      port: 8118
-      targetPort: 8118
+  ports:
+    - port: 9443
+      protocol: TCP
+      targetPort: https-torrent
+    - name: "51415"
+      port: 51415
+      targetPort: 51415-torrent
+    - name: "3000 "
+      port: 3000 
+      targetPort: 3000-torrent
   selector:
-    app: rtorrentvpn   
-status:
-  loadBalancer: {}
+    app: torrent   
