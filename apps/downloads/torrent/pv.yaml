@@ -7,7 +7,7 @@ metadata:
   name: pv-nfs-torrent-downloads
 spec:
   capacity:
-    storage: 1500Gi
+    storage: 1600Gi
   accessModes:
     - ReadWriteMany
   nfs:
