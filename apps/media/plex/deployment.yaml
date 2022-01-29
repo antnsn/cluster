@@ -48,9 +48,9 @@ spec:
             - mountPath: /config
               name: plex-config
             - mountPath: /data
-              name: plex-tv
+              name: plex-data
             - mountPath: /transcode
-              name: plex-movies                            
+              name: plex-transcode                            
           env:      
            - name: TZ
              value: Europe/Oslo    
@@ -62,7 +62,7 @@ spec:
             claimName: pvc-plex-config
         - name: plex-tv
           persistentVolumeClaim:
-            claimName: pvc-plex-tvshows
-        - name: plex-movies
+            claimName: pvc-plex-transcode
+        - name: plex-data
           persistentVolumeClaim:
-            claimName: pvc-plex-movies                        
+            claimName: pvc-plex-data                        
