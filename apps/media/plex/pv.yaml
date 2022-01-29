@@ -9,7 +9,7 @@ spec:
   capacity:
     storage: 3000Gi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   nfs:
     server: madara.home
     path: "/volume1/share/"

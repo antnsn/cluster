@@ -47,10 +47,10 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: plex-config
-            - mountPath: /data
-              name: plex-data
             - mountPath: /transcode
-              name: plex-transcode                            
+              name: plex-transcode              
+            - mountPath: /data
+              name: plex-data                          
           env:      
            - name: TZ
              value: Europe/Oslo    
