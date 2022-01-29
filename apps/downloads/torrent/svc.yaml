@@ -8,7 +8,7 @@ metadata:
 spec:
   ports:
     - name: "https"
-      port: 9443
+      port: 443
       protocol: TCP
       targetPort: https-torrent
     - name: "51415"
