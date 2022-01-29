@@ -53,10 +53,12 @@ spec:
             - mountPath: /config
               name: torrent-config
           env:
-           - name: DEBUG
-             value: "false"          
+           - name: PGID
+             value: "0"
+           - name: PUID
+             value: "0"
            - name: TZ
-             value: Europe/Oslo    
+             value: Europe/Oslo  
       volumes:
         - name: torrent-config
           persistentVolumeClaim:
