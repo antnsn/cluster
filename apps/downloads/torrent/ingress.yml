@@ -19,4 +19,4 @@ spec:
           service:
             name: svc-rutorrent
             port:
-              name: https-torrent
+              name: http-torrent

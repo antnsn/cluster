@@ -7,6 +7,10 @@ metadata:
   name: svc-rutorrent
 spec:
   ports:
+    - name: "http"
+      port: 80
+      protocol: TCP
+      targetPort: http-torrent  
     - name: "https"
       port: 443
       protocol: TCP

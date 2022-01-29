@@ -20,6 +20,8 @@ spec:
           name: rutorrent
           imagePullPolicy: IfNotPresent
           ports:
+            - containerPort: 80   
+              name: http-torrent          
             - containerPort: 443   
               name: https-torrent
               protocol: TCP
