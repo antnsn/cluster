@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: plex
-          image: ghcr.io/linuxserver/plex:latest
+          image: plexinc/pms-docker
           imagePullPolicy: IfNotPresent
           # resources:
           #   limits:
@@ -47,19 +47,15 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: plex-config
-            - mountPath: /tv
+            - mountPath: /data
               name: plex-tv
-            - mountPath: /movies
+            - mountPath: /transcode
               name: plex-movies                            
           env:      
-           - name: VERSION
-             value: "public"          
-           - name: PGID
-             value: "1000"
-           - name: PUID
-             value: "1000"
            - name: TZ
              value: Europe/Oslo    
+           - name: PLEX_CLAIM
+             value: claim-uV-sr7rpaspa7ypHCTLx                
       volumes:
         - name: plex-config
           persistentVolumeClaim:
