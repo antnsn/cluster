@@ -23,24 +23,24 @@ spec:
             - containerPort: 7878
               name: http-radarr
               protocol: TCP
-          # readinessProbe:
-          #   failureThreshold: 3
-          #   httpGet:
-          #     path: /robots.txt
-          #     port: 7878
-          #     scheme: HTTP
-          #   initialDelaySeconds: 120
-          #   periodSeconds: 30
-          #   successThreshold: 1
-          #   timeoutSeconds: 2
-          # livenessProbe:
-          #   failureThreshold: 3
-          #   initialDelaySeconds: 30
-          #   periodSeconds: 10
-          #   successThreshold: 1
-          #   tcpSocket:
-          #     port: 7878
-          #   timeoutSeconds: 1
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /robots.txt
+              port: 7878
+              scheme: HTTP
+            initialDelaySeconds: 120
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 2
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 7878
+            timeoutSeconds: 1
           volumeMounts:
             - mountPath: /config
               name: radarr-config
