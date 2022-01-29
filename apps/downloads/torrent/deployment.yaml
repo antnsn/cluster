@@ -20,7 +20,9 @@ spec:
           name: rtorrentvpn
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 9080                 
+            - containerPort: 9080   
+              name: http-torrent
+              protocol: TCP                          
           readinessProbe:
             failureThreshold: 3
             httpGet:
