@@ -1,8 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: rtorrentvpn-ingress
-  namespace: downloads  
+  labels:
+    app: torrent
+  namespace: torrent 
+  name: rtorrentvpn-ingress 
   annotations:
     #kubernetes.io/ingress.class: nginx  
     kubernetes.io/ingress.class: public

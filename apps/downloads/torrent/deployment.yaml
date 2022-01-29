@@ -3,17 +3,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: rtorrentvpn
+    app: torrent
+  namespace: torrent 
   name: rtorrentvpn
-  namespace: downloads  
 spec:
   selector:
     matchLabels:
-      app: rtorrentvpn
+      app: torrent
   template:
     metadata:
       labels:
-        app: rtorrentvpn
+        app: torrent
     spec:
       containers:
           image: binhex/arch-rtorrentvpn

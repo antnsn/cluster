@@ -1,6 +1,9 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
+  labels:
+    app: torrent
+  namespace: torrent 
   name: pv-nfs-torrent-downloads
 spec:
   capacity:
@@ -13,18 +16,21 @@ spec:
   mountOptions:
     - nfsvers=4.1
 ---   
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: pv-nfs-torrent-config
-spec:
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteMany
-  nfs:
-    server: madara.home
-    path: "/volume1/share/k8s-config"
-  mountOptions:
-    - nfsvers=4.1
----           
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   labels:
+#     app: torrent
+#   namespace: torrent 
+#   name: pv-nfs-torrent-config
+# spec:
+#   capacity:
+#     storage: 10Gi
+#   accessModes:
+#     - ReadWriteMany
+#   nfs:
+#     server: madara.home
+#     path: "/volume1/share/k8s-config"
+#   mountOptions:
+#     - nfsvers=4.1
+# ---           
