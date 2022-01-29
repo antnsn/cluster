@@ -61,7 +61,7 @@ spec:
            - name: PGID
              value: "0"
            - name: VERSION
-             value: "docker "                         
+             value: "docker"                         
       volumes:
         - name: plex-config
           persistentVolumeClaim:
