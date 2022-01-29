@@ -16,7 +16,7 @@ spec:
         app: torrent
     spec:
       containers:
-          image: binhex/arch-rtorrentvpn
+        - image: binhex/arch-rtorrentvpn
           name: rtorrentvpn
           imagePullPolicy: IfNotPresent
           ports:
