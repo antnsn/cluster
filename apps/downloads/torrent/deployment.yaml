@@ -86,21 +86,21 @@ spec:
         app: torrent
     spec:
       containers:
-        - image: gists/rtorrent
-          name: rutorrent
+        - image: jesec/rtorrent-flood
+          name: rtorrent-flood
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080   
+            - containerPort: 3001   
               name: http-torrent          
-            - containerPort: 5500   
-              name: https-torrent
+            - containerPort: 6881   
+              name: torrent-port
               protocol: TCP
                                                       
           readinessProbe:
             failureThreshold: 3
             httpGet:
               path: /
-              port: 80
+              port: 3001
               scheme: HTTP
             initialDelaySeconds: 10
             periodSeconds: 30
@@ -112,7 +112,7 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             tcpSocket:
-              port: 80
+              port: 3001
             timeoutSeconds: 1
           volumeMounts:
             - mountPath: /data
@@ -120,12 +120,14 @@ spec:
             - mountPath: /config
               name: torrent-config
           env:
-           - name: PASSWORD
-             value: "yourpassword"
-           - name: USERNAME
-             value: "yourname"
+           - name: HOME
+             value: "/config"
            - name: TZ
              value: Europe/Oslo  
+           - name: PUID
+             value: "0"
+           - name: PGID
+             value: "0"               
       volumes:
         - name: torrent-config
           persistentVolumeClaim:

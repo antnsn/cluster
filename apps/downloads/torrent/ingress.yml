@@ -4,7 +4,7 @@ metadata:
   labels:
     app: torrent
   namespace: torrent 
-  name: rutorrent-ingress 
+  name: torrent-ingress 
   annotations:
     #kubernetes.io/ingress.class: nginx  
     kubernetes.io/ingress.class: public
@@ -17,6 +17,6 @@ spec:
         path: /
         backend:
           service:
-            name: svc-rutorrent
+            name: svc-torrent
             port:
               name: http
