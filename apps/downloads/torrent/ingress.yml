@@ -19,4 +19,4 @@ spec:
           service:
             name: svc-rutorrent
             port:
-              number: 8118
+              name: https-torrent
