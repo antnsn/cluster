@@ -1,6 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  labels:
+    app: plex
+  namespace: plex
   name: plex-ingress
   annotations:
     #kubernetes.io/ingress.class: nginx  

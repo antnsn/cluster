@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: plex
+  namespace: plex
   name: pvc-plex-config
 spec:
   accessModes:
@@ -14,6 +15,9 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  labels:
+    app: plex
+  namespace: plex
   name: pvc-plex-movies
 spec:
   accessModes:
@@ -27,6 +31,9 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  labels:
+    app: plex
+  namespace: plex
   name: pvc-plex-tvshows
 spec:
   accessModes:

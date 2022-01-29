@@ -4,8 +4,8 @@ kind: Deployment
 metadata:
   labels:
     app: plex
+  namespace: plex    
   name: plex
-
 spec:
   selector:
     matchLabels:
