@@ -87,7 +87,7 @@ spec:
     spec:
       containers:
         - image: linuxserver/deluge:amd64-latest
-          name: rutorrent
+          name: deluge
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8112 
