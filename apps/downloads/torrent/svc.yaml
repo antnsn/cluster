@@ -17,11 +17,11 @@ spec:
       targetPort: scgi-port
     - name: "torrent-tcp"
       port: 51413 
-      protocol: udp
+      protocol: TCP
       targetPort: torrent-tcp    
     - name: "torrent-udp"
       port: 6881 
-      protocol: udp
+      protocol: UDP
       targetPort: torrent-udp
 
   selector:
