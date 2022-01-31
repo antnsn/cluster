@@ -95,9 +95,9 @@ spec:
             - containerPort: 5000   
               name: scgi-port   
             - containerPort: 51413   
-              name: bit-toorent-port                                         
+              name: torrent-tcp
             - containerPort: 6881   
-              name: torrent-port
+              name: torrent-udp
               protocol: udp
                                                       
           readinessProbe:

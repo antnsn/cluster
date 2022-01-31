@@ -10,10 +10,19 @@ spec:
     - name: "http"
       port: 3001
       protocol: TCP
-      targetPort: http-torrent  
-    - name: "https"
-      port: 6881 
+      targetPort: http-torrent 
+    - name: "scgi"
+      port: 3001
       protocol: TCP
-      targetPort: torrent-port
+      targetPort: scgi-port
+    - name: "torrent-tcp"
+      port: 51413 
+      protocol: udp
+      targetPort: torrent-tcp    
+    - name: "torrent-udp"
+      port: 6881 
+      protocol: udp
+      targetPort: torrent-udp
+
   selector:
     app: torrent   
