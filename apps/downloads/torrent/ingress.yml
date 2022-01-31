@@ -18,5 +18,5 @@ spec:
         backend:
           service:
             name: svc-torrent
-            port:
+            port: 
               name: http
