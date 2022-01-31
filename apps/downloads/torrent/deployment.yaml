@@ -98,8 +98,7 @@ spec:
               name: torrent-tcp
             - containerPort: 6881   
               name: torrent-udp
-              protocol: udp
-                                                      
+              protocol: UDP                                                      
           readinessProbe:
             failureThreshold: 3
             httpGet:
@@ -123,11 +122,7 @@ spec:
               name: torrent-downloads        
             - mountPath: /config
               name: torrent-config
-          env:
-           - name: host
-             value: "0.0.0.0"          
-           - name: HOME
-             value: "/config"
+          env:       
            - name: TZ
              value: Europe/Oslo  
            - name: PUID
