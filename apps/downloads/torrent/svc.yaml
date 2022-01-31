@@ -11,13 +11,13 @@ spec:
       port: 8080
       targetPort: http-torrent 
     - name: "torrent-tcp"
-      port: 6881 
+      port: 8000 
       protocol: TCP
-      targetPort: torrent-tcp    
+      targetPort: XMLRPC_PORT    
     - name: "torrent-udp"
       port: 6881 
       protocol: UDP
-      targetPort: torrent-udp
+      targetPort: RT_DHT_PORT
 
   selector:
     app: torrent   

@@ -75,7 +75,7 @@ metadata:
   labels:
     app: torrent
   namespace: torrent 
-  name: qbittorrent
+  name: rutorrent
 spec:
   selector:
     matchLabels:
@@ -86,17 +86,19 @@ spec:
         app: torrent
     spec:
       containers:
-        - image: linuxserver/qbittorrent:amd64-latest
-          name: qbittorrent
+        - image: crazymax/rtorrent-rutorrent
+          name: rutorrent
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080 
               name: http-torrent 
             - containerPort: 6881   
-              name: torrent-tcp
+              name: RT_DHT_PORT
               protocol: TCP 
-            - containerPort: 6881   
-              name: torrent-udp
+            - containerPort: 8000    
+              name: XMLRPC_PORT
+            - containerPort: 50000     
+              name: RT_INC_PORT             
               protocol: UDP                                                      
           readinessProbe:
             failureThreshold: 3
@@ -122,8 +124,6 @@ spec:
             - mountPath: /config
               name: torrent-config
           env:
-           - name: WEBUI_PORT
-             value: "8080"
            - name: TZ
              value: Europe/Oslo  
            - name: PUID
