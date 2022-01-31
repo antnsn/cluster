@@ -8,15 +8,11 @@ metadata:
 spec:
   ports:
     - name: "http"
-      port: 80
+      port: 8112
       protocol: TCP
       targetPort: http-torrent 
-    - name: "scgi"
-      port: 5000
-      protocol: TCP
-      targetPort: scgi-port
     - name: "torrent-tcp"
-      port: 51413 
+      port: 6881 
       protocol: TCP
       targetPort: torrent-tcp    
     - name: "torrent-udp"

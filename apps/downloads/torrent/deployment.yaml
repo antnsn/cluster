@@ -86,16 +86,15 @@ spec:
         app: torrent
     spec:
       containers:
-        - image: linuxserver/rutorrent:amd64-latest
+        - image: linuxserver/deluge:amd64-latest
           name: rutorrent
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 80   
-              name: http-torrent
-            - containerPort: 5000   
-              name: scgi-port   
-            - containerPort: 51413   
+            - containerPort: 8112 
+              name: http-torrent 
+            - containerPort: 6881   
               name: torrent-tcp
+              protocol: TCP 
             - containerPort: 6881   
               name: torrent-udp
               protocol: UDP                                                      
@@ -103,7 +102,7 @@ spec:
             failureThreshold: 3
             httpGet:
               path: /
-              port: 80
+              port: 8112
               scheme: HTTP
             initialDelaySeconds: 10
             periodSeconds: 30
@@ -115,7 +114,7 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             tcpSocket:
-              port: 80
+              port: 8112
             timeoutSeconds: 1
           volumeMounts:
             - mountPath: /downloads
@@ -125,10 +124,10 @@ spec:
           env:       
            - name: TZ
              value: Europe/Oslo  
-          #  - name: PUID
-          #    value: "1000"
-          #  - name: PGID
-          #    value: "1000"               
+           - name: PUID
+             value: "1000"
+           - name: PGID
+             value: "1000"               
       volumes:
         - name: torrent-config
           persistentVolumeClaim:
