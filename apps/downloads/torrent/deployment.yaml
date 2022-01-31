@@ -86,7 +86,7 @@ spec:
         app: torrent
     spec:
       containers:
-        - image: linuxserver/rutorrent
+        - image: linuxserver/rutorrent:amd64-latest
           name: rutorrent
           imagePullPolicy: IfNotPresent
           ports:
@@ -126,9 +126,9 @@ spec:
            - name: TZ
              value: Europe/Oslo  
            - name: PUID
-             value: "1000"
+             value: 1000
            - name: PGID
-             value: "1000"               
+             value: 1000
       volumes:
         - name: torrent-config
           persistentVolumeClaim:
