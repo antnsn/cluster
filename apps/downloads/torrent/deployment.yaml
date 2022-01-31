@@ -93,12 +93,12 @@ spec:
             - containerPort: 8080 
               name: http-torrent 
             - containerPort: 6881   
-              name: RT_DHT_PORT
+              name: RT-DHT-PORT
               protocol: TCP 
             - containerPort: 8000    
-              name: XMLRPC_PORT
+              name: XMLRPC-PORT
             - containerPort: 50000     
-              name: RT_INC_PORT             
+              name: RT-INC-PORT             
               protocol: UDP                                                      
           readinessProbe:
             failureThreshold: 3
