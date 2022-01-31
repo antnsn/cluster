@@ -75,7 +75,7 @@ metadata:
   labels:
     app: torrent
   namespace: torrent 
-  name: rutorrent
+  name: deluge
 spec:
   selector:
     matchLabels:
