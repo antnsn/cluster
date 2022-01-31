@@ -125,10 +125,10 @@ spec:
           env:       
            - name: TZ
              value: Europe/Oslo  
-           - name: PUID
-             value: 1000
-           - name: PGID
-             value: 1000
+          #  - name: PUID
+          #    value: "1000"
+          #  - name: PGID
+          #    value: "1000"               
       volumes:
         - name: torrent-config
           persistentVolumeClaim:
