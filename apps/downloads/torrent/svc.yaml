@@ -13,11 +13,11 @@ spec:
     - name: "torrent-tcp"
       port: 8000 
       protocol: TCP
-      targetPort: XMLRPC-PORT    
+      targetPort: xmlrpc-port
     - name: "torrent-udp"
       port: 6881 
       protocol: UDP
-      targetPort: RT-DHT-PORT
+      targetPort: rt-dht-port
 
   selector:
     app: torrent   
