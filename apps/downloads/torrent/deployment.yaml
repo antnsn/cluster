@@ -127,9 +127,9 @@ spec:
            - name: TZ
              value: Europe/Oslo  
            - name: PUID
-             value: "0"
+             value: "1000"
            - name: PGID
-             value: "0"               
+             value: "1000"               
       volumes:
         - name: torrent-config
           persistentVolumeClaim:

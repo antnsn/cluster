@@ -19,4 +19,4 @@ spec:
           service:
             name: svc-torrent
             port: 
-              name: http
+              number: 80
