@@ -5,5 +5,5 @@ data:
   use-forwarded-headers: "false"
 kind: ConfigMap
 metadata:
-  name: ingress-nginx-controller
+  name: public
 
