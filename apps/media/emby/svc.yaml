@@ -1,3 +1,18 @@
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   labels:
+#     app: emby
+#   namespace: emby
+#   name: svc-emby
+# spec:
+#   ports:
+#     - port: 8096
+#       protocol: TCP
+#       targetPort: http-emby
+#   selector:
+#     app: emby      
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -6,10 +21,13 @@ metadata:
   namespace: emby
   name: svc-emby
 spec:
-  ports:
-    - port: 8096
-      protocol: TCP
-      targetPort: http-emby
+  type: NodePort
   selector:
-    app: emby      
-
+    app: emby
+  ports:
+      # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
+    - port: 8096
+      targetPort: http-emby
+      # Optional field
+      # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
+      nodePort: 30007
