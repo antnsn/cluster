@@ -30,7 +30,6 @@ spec:
           readinessProbe:
             failureThreshold: 3
             httpGet:
-              path: /robots.txt
               port: 8123
               scheme: HTTP
             initialDelaySeconds: 10
