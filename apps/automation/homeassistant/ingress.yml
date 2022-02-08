@@ -17,4 +17,4 @@ spec:
           service:
             name: svc-homeassistant
             port:
-              number: 3000
+              number: 8123

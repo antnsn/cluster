@@ -5,7 +5,7 @@ metadata:
   namespace: automation
 spec:
   ports:
-    - port: 3000
+    - port: 8123
       protocol: TCP
       targetPort: http-homeassistant
   selector:
