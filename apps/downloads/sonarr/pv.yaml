@@ -45,7 +45,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: madara.home
-    path: "/volume1/share/downloads/complete/tvshows/"
+    path: "/volume1/share/downloads/"
   mountOptions:
     - nfsvers=4.1
 ---       
