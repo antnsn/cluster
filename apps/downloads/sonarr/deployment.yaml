@@ -46,7 +46,7 @@ spec:
               name: sonarr-config
             - mountPath: /tv
               name: sonarr-tvshows
-            - mountPath: /downloads
+            - mountPath: /data
               name: sonarr-downloads                            
           env:
            - name: PGID

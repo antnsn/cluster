@@ -46,7 +46,7 @@ spec:
               name: radarr-config
             - mountPath: /movies
               name: radarr-movies
-            - mountPath: /downloads
+            - mountPath: /data
               name: radarr-downloads      
           env:
            - name: PGID
