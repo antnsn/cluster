@@ -8,16 +8,16 @@ metadata:
 spec:
   ports:
     - name: "http"
-      port: 8080
+      port: 9080
       targetPort: http-torrent 
-    - name: "torrent-tcp"
-      port: 8000 
-      protocol: TCP
-      targetPort: xmlrpc-port
-    - name: "torrent-udp"
-      port: 6881 
-      protocol: UDP
-      targetPort: rt-dht-port
+    - name: "https"
+      port: 9443 
+      # protocol: TCP
+      targetPort: https-torrent 
+    - name: "torrent"
+      port: 8118 
+      # protocol: UDP
+      targetPort: torrent
 
   selector:
     app: torrent   
