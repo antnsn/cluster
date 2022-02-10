@@ -15,14 +15,14 @@ spec:
       labels:
         app: torrent
     spec:
-     securityContext:
-       capabilities:
-         add:
-           - NET_ADMIN    
       containers:
         - image: binhex/arch-rtorrentvpn
           name: rtorrentvpn
-          imagePullPolicy: IfNotPresent          
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            privileged: true
+            capabilities:
+              add: ["NET_ADMIN","NET_RAW"]                    
           ports:
             - containerPort: 9080
               name: http-torrent             
