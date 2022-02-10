@@ -20,10 +20,9 @@ spec:
           name: rtorrentvpn
           imagePullPolicy: IfNotPresent
           securityContext:
-            privileged: true
-            runAsUser: 0
+            # privileged: true
             capabilities:
-              add: ["NET_ADMIN","NET_RAW"]                    
+              add: ["NET_ADMIN"]                    
           ports:
             - containerPort: 9080
               name: http-torrent             
