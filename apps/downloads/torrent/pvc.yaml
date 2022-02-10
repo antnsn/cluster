@@ -44,4 +44,18 @@ spec:
       storage: 9Gi
   volumeName: pv-nfs-torrent-config
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: torrent
+  namespace: torrent
+  name: pvc-torrent-time
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+---
 

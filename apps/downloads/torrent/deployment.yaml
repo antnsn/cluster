@@ -88,5 +88,5 @@ spec:
             claimName: pvc-torrent-downloads     
         - name: arch-rtorrentvpn-claim2
           persistentVolumeClaim:
-            claimName: arch-rtorrentvpn-claim2
+            claimName: pvc-torrent-time
             readOnly: true
