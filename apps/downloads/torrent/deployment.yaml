@@ -35,10 +35,9 @@ spec:
               name: torrent-downloads
             - mountPath: /config
               name: torrent-config
-            # - mountPath: /etc/localtime
-            #   name: arch-rtorrentvpn-claim2
-            #   readOnly: true         
-                                   
+            - mountPath: /etc/localtime
+              name: arch-rtorrentvpn-claim2
+              readOnly: true                                          
           env:
            - name: ADDITIONAL_PORTS
              value: "1234"
@@ -73,7 +72,7 @@ spec:
            - name: VPN_PROV
              value: airvpn
            - name: PHP_TZ
-             value: UTC  
+             value: "Europe/Oslo"  
            - name: UMASK
              value: "000"                           
            - name: PGID
