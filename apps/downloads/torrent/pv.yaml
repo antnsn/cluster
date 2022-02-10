@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   labels:
     app: torrent
-  namespace: torrent 
+  namespace: downloads
   name: pv-nfs-torrent-downloads
 spec:
   capacity:
@@ -21,7 +21,7 @@ kind: PersistentVolume
 metadata:
   labels:
     app: torrent
-  namespace: torrent 
+  namespace: downloads
   name: pv-nfs-torrent-config
 spec:
   capacity:

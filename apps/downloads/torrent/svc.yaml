@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: torrent
-  namespace: torrent 
+  namespace: downloads
   name: svc-rutorrent
 spec:
   ports:

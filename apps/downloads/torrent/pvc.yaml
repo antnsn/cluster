@@ -4,7 +4,7 @@
 #   labels:
 #     app: torrent
 #   name: pvc-torrent-config
-#   namespace: torrent  
+#   namespace: downloads 
 # spec:
 #   accessModes:
 #     - ReadWriteOnce
@@ -17,7 +17,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: torrent
-  namespace: torrent 
+  namespace: downloads
   name: pvc-torrent-downloads
 spec:
   accessModes:
@@ -33,7 +33,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: torrent
-  namespace: torrent 
+  namespace: downloads
   name: pvc-torrent-config
 spec:
   accessModes:

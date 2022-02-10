@@ -5,7 +5,7 @@ metadata:
   labels:
     app: torrent
   name: torrent
-  namespace: torrent 
+  namespace: downloads
 spec:
   selector:
     matchLabels:
@@ -93,7 +93,7 @@ spec:
 # metadata:
 #   labels:
 #     app: torrent
-#   namespace: torrent 
+#   namespace: downloads
 #   name: rutorrent
 # spec:
 #   selector:
