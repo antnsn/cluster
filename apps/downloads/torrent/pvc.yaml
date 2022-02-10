@@ -49,7 +49,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: torrent
-  namespace: torrent
+  namespace: downloads
   name: pvc-torrent-time
 spec:
   accessModes:
