@@ -20,6 +20,9 @@ spec:
           name: rtorrentvpn
           imagePullPolicy: IfNotPresent
           securityContext:
+            runAsUser: 1
+            runAsGroup: 82
+            readOnlyRootFilesystem: True          
             # privileged: true
             capabilities:
               add: ["NET_ADMIN"]                    
