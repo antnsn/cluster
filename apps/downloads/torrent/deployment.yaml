@@ -21,6 +21,7 @@ spec:
           imagePullPolicy: IfNotPresent
           securityContext:
             privileged: true
+            runAsUser: 0
             capabilities:
               add: ["NET_ADMIN","NET_RAW"]                    
           ports:
