@@ -28,7 +28,7 @@ spec:
               name: torrent
           volumeMounts:
             - mountPath: /data
-              name: pvc-torrent-downloads
+              name: torrent-downloads
             - mountPath: /config
               name: torrent-config
             - mountPath: /etc/localtime
