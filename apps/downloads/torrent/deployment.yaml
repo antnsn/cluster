@@ -38,7 +38,7 @@ spec:
             - name: ADDITIONAL_PORTS
               value: "1234"
             - name: DEBUG
-              value: "false"
+              value: "true"
             - name: ENABLE_AUTODL_IRSSI
               value: "yes"
             - name: ENABLE_PRIVOXY
