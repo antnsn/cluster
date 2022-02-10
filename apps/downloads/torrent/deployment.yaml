@@ -44,27 +44,19 @@ spec:
            - name: DEBUG
              value: "true"
            - name: ENABLE_AUTODL_IRSSI
-             value: "yes"
+             value: "no"
            - name: ENABLE_PRIVOXY
              value: "yes"
            - name: ENABLE_RPC2
              value: "yes"
            - name: ENABLE_RPC2_AUTH
-             value: "yes"
+             value: "no"
            - name: ENABLE_WEBUI_AUTH
              value: "no"
            - name: LAN_NETWORK
              value: 192.168.1.0/24
            - name: NAME_SERVERS
              value: 209.222.18.222,84.200.69.80,37.235.1.174,1.1.1.1,209.222.18.218,37.235.1.177,84.200.70.40,1.0.0.1
-           - name: WEBUI_PASS
-             value: NzRhMjE4NjUzZDYw
-           - name: WEBUI_USER
-             value: admin              
-           - name: RPC2_USER
-             value: admin            
-           - name: RPC2_PASS
-             value: NzRhMjE4NjUzZDYw
            - name: VPN_ENABLED
              value: "yes"
            - name: VPN_CLIENT
