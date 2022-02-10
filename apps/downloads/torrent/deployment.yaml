@@ -15,10 +15,10 @@ spec:
       labels:
         app: torrent
     spec:
-      securityContext:
-        fsGroup: 472
-        supplementalGroups:
-          - 0    
+     securityContext:
+       capabilities:
+         add:
+           - NET_ADMIN    
       containers:
         - image: binhex/arch-rtorrentvpn
           name: rtorrentvpn
