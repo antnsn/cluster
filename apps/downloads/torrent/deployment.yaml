@@ -36,7 +36,7 @@ spec:
             - mountPath: /config
               name: torrent-config
             - mountPath: /etc/localtime
-              name: arch-rtorrentvpn-claim2
+              name: pvc-torrent-time
               readOnly: true                                          
           env:
            - name: ADDITIONAL_PORTS
@@ -86,7 +86,7 @@ spec:
         - name: torrent-downloads
           persistentVolumeClaim:
             claimName: pvc-torrent-downloads     
-        - name: arch-rtorrentvpn-claim2
+        - name: pvc-torrent-time
           persistentVolumeClaim:
             claimName: pvc-torrent-time
             readOnly: true
