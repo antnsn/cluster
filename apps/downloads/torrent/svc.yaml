@@ -18,6 +18,5 @@ spec:
       port: 8118 
       # protocol: UDP
       targetPort: torrent
-
   selector:
     app: torrent   
