@@ -31,9 +31,9 @@ spec:
               name: torrent-downloads
             - mountPath: /config
               name: torrent-config
-            - mountPath: /etc/localtime
-              name: arch-rtorrentvpn-claim2
-              readOnly: true                                
+            # - mountPath: /etc/localtime
+            #   name: arch-rtorrentvpn-claim2
+            #   readOnly: true                                
           env:
             - name: ADDITIONAL_PORTS
               value: "1234"
@@ -86,74 +86,3 @@ spec:
           persistentVolumeClaim:
             claimName: arch-rtorrentvpn-claim2
             readOnly: true
-
-
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   labels:
-#     app: torrent
-#   namespace: downloads
-#   name: rutorrent
-# spec:
-#   selector:
-#     matchLabels:
-#       app: torrent
-#   template:
-#     metadata:
-#       labels:
-#         app: torrent
-#     spec:
-#       containers:
-#         - image: crazymax/rtorrent-rutorrent
-#           name: rutorrent
-#           imagePullPolicy: IfNotPresent
-#           ports:
-#             - containerPort: 8080 
-#               name: http-torrent 
-#             - containerPort: 6881   
-#               name: rt-dht-port
-#               protocol: TCP 
-#             - containerPort: 8000    
-#               name: xmlrpc-port
-#             - containerPort: 50000     
-#               name: rt-inv-port             
-#               protocol: UDP                                                      
-#           readinessProbe:
-#             failureThreshold: 3
-#             httpGet:
-#               path: /
-#               port: 8080
-#               scheme: HTTP
-#             initialDelaySeconds: 10
-#             periodSeconds: 30
-#             successThreshold: 1
-#             timeoutSeconds: 2
-#           livenessProbe:
-#             failureThreshold: 3
-#             initialDelaySeconds: 30
-#             periodSeconds: 10
-#             successThreshold: 1
-#             tcpSocket:
-#               port: 8080
-#             timeoutSeconds: 1
-#           volumeMounts:
-#             - mountPath: /downloads
-#               name: torrent-downloads        
-#             - mountPath: /config
-#               name: torrent-config
-#           env:
-#            - name: TZ
-#              value: Europe/Oslo  
-#            - name: PUID
-#              value: "1000"
-#            - name: PGID
-#              value: "1000"               
-#       volumes:
-#         - name: torrent-config
-#           persistentVolumeClaim:
-#             claimName: pvc-torrent-config
-#         - name: torrent-downloads
-#           persistentVolumeClaim:
-#             claimName: pvc-torrent-downloads         
-         
