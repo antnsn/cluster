@@ -27,8 +27,11 @@ spec:
               name: mqtt-9001
               protocol: TCP              
           readinessProbe:
-            tcpSocket:
-              port: 1883
+            httpGet:
+              port: 9001
+              scheme: HTTP          
+            # tcpSocket:
+            #   port: 1883
             initialDelaySeconds: 10              
             periodSeconds: 10
             successThreshold: 1
@@ -39,9 +42,12 @@ spec:
             periodSeconds: 10          
             successThreshold: 1
             failureThreshold: 3            
-            timeoutSeconds: 2            
-            tcpSocket:
-              port: 1883
+            timeoutSeconds: 2
+            httpGet:
+              port: 9001
+              scheme: HTTP                           
+            # tcpSocket:
+            #   port: 1883
           volumeMounts:
             - mountPath: /mosquitto/data
               name: mqtt-pv
