@@ -12,7 +12,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: madara.home
-    path: "/volume1/share/k8s-config/mqtt"
+    path: "/volume1/share/k8s-config/ha-config"
   mountOptions:
     - nfsvers=4.1
 ---   
