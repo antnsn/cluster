@@ -30,21 +30,23 @@ spec:
             tcpSocket:
               port: 1883
             initialDelaySeconds: 10              
-            periodSeconds: 30
+            periodSeconds: 10
             successThreshold: 1
             failureThreshold: 3            
             timeoutSeconds: 2
           livenessProbe:
-            initialDelaySeconds: 30
+            initialDelaySeconds: 10
             periodSeconds: 10          
             successThreshold: 1
             failureThreshold: 3            
+            timeoutSeconds: 2            
             tcpSocket:
               port: 1883
-            timeoutSeconds: 1
           volumeMounts:
             - mountPath: /mosquitto/data
               name: mqtt-pv
+            - mountPath: /mosquitto/log
+              name: mqtt-pv              
       volumes:
         - name: mqtt-pv
           persistentVolumeClaim:
