@@ -27,10 +27,9 @@ spec:
               name: mqtt-9001
               protocol: TCP              
           readinessProbe:
-            failureThreshold: 3
-            httpGet:
+            tcpSocket:
               port: 1883
-              scheme: HTTP
+            failureThreshold: 3
             initialDelaySeconds: 10
             periodSeconds: 30
             successThreshold: 1
