@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    app: mqtt
+  namespace: automation 
+  name: pv-nfs-mqtt-config
+spec:
+  capacity:
+    storage: 11Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: madara.home
+    path: "/volume1/share/k8s-config/ha-config"
+  mountOptions:
+    - nfsvers=4.1
+---   
