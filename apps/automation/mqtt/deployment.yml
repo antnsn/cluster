@@ -44,7 +44,7 @@ spec:
               port: 1883
             timeoutSeconds: 1
           volumeMounts:
-            - mountPath: /mosquitto
+            - mountPath: /mosquitto/data
               name: mqtt-pv
       volumes:
         - name: mqtt-pv
