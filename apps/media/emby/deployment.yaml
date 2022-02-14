@@ -19,9 +19,10 @@ spec:
         - name: emby
           image: linuxserver/emby:amd64-latest
           imagePullPolicy: IfNotPresent
-          # resources:
-          #   limits:
-          #     nvidia.com/gpu: 1 # requesting 1 GPUs          
+          resources:
+            limits:
+              nvidia.com/gpu: 1 # requesting 1 GPUs              
+       
           ports:
             - containerPort: 8096
               name: http-emby
