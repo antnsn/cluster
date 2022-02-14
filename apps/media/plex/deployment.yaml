@@ -19,9 +19,9 @@ spec:
         - name: plex
           image: linuxserver/plex:amd64-latest
           imagePullPolicy: IfNotPresent
-          # resources:
-          #   limits:
-          #     nvidia.com/gpu: 1 # requesting 1 GPUs          
+          resources:
+            limits:
+              nvidia.com/gpu: 1 # requesting 1 GPUs          
           ports:
             - containerPort: 32400
               name: http-plex
