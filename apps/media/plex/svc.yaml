@@ -10,6 +10,7 @@ spec:
     - port: 32400
       protocol: TCP
       targetPort: http-plex
+      nodePort: 30327
   selector:
     app: plex      
 
