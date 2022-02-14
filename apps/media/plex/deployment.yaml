@@ -54,6 +54,8 @@ spec:
           env:      
            - name: TZ
              value: Europe/Oslo    
+           - name: PLEX_CLAIM
+             value: "claim-xxmhaqKexbb71kBSt8yJ"   
            - name: PUID
              value: "0"
            - name: PGID
