@@ -10,4 +10,18 @@ spec:
       targetPort: http-ha
   selector:
     app: homeassistant      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-mqtt
+  namespace: automation
+spec:
+  ports:
+    - port: 1883
+      protocol: TCP
+      targetPort: mqtt-1883
+  selector:
+    app: mqtt      
+
 

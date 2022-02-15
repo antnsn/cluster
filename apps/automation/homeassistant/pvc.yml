@@ -26,3 +26,18 @@ spec:
       storage: 30Gi
   volumeName: pv-nfs-homeassistant-config
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: mqtt
+  namespace: automation 
+  name: mqtt-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 10Gi
+  volumeName: pv-nfs-mqtt-config
