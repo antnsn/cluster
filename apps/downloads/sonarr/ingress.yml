@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   labels:
     app: sonarr
-  namespace: sonarr  
+  namespace: downloads  
   name: sonarr-ingress
   annotations:
     #kubernetes.io/ingress.class: nginx

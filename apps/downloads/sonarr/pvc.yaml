@@ -1,6 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  labels:
+    app: sonarr
+  namespace: downloads 
   name: pvc-sonarr-config
 spec:
   accessModes:
@@ -15,7 +18,7 @@ spec:
 # metadata:
 #   labels:
 #     app: sonarr
-#   namespace: sonarr  
+#   namespace: downloads  
 #   name: pvc-sonarr-config
 # spec:
 #   accessModes:
@@ -29,7 +32,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: sonarr
-  namespace: sonarr  
+  namespace: downloads  
   name: pvc-sonarr-tvshows
 spec:
   accessModes:
@@ -45,7 +48,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: sonarr
-  namespace: sonarr  
+  namespace: downloads  
   name: pvc-sonarr-downloads
 spec:
   accessModes:

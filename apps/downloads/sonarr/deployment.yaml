@@ -5,7 +5,7 @@ metadata:
   labels:
     app: sonarr
   name: sonarr
-  namespace: sonarr
+  namespace: downloads
 spec:
   selector:
     matchLabels:

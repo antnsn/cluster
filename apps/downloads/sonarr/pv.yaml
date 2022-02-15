@@ -18,7 +18,7 @@ kind: PersistentVolume
 metadata:
   labels:
     app: sonarr
-  namespace: sonarr  
+  namespace: downloads  
   name: pv-nfs-sonarr-tvshows 
 spec:
   capacity:
@@ -36,7 +36,7 @@ kind: PersistentVolume
 metadata:
   labels:
     app: sonarr
-  namespace: sonarr  
+  namespace: downloads  
   name: pv-nfs-sonarr-downloads
 spec:
   capacity:
