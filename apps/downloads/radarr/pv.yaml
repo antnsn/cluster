@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: pv-nfs-radarr-config
+  namespace: downloads    
 spec:
   capacity:
     storage: 10Gi
@@ -17,7 +18,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: pv-nfs-radarr-movies
-  namespace: radarr  
+  namespace: downloads  
 spec:
   capacity:
     storage: 2000Gi
@@ -33,7 +34,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: pv-nfs-radarr-downloads
-  namespace: radarr  
+  namespace: downloads  
 spec:
   capacity:
     storage: 150Gi

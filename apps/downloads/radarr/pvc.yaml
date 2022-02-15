@@ -1,7 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  labels:
+    app: radarr
   name: pvc-radarr-config
+  namespace: downloads    
 spec:
   accessModes:
     - ReadWriteMany
@@ -17,7 +20,7 @@ spec:
 #   labels:
 #     app: radarr
 #   name: pvc-radarr-config
-#   namespace: radarr  
+#   namespace: downloads  
 # spec:
 #   accessModes:
 #     - ReadWriteOnce
@@ -31,7 +34,7 @@ metadata:
   labels:
     app: radarr
   name: pvc-radarr-movies
-  namespace: radarr  
+  namespace: downloads  
 spec:
   accessModes:
     - ReadWriteMany
@@ -48,7 +51,7 @@ metadata:
   labels:
     app: radarr
   name: pvc-radarr-downloads
-  namespace: radarr  
+  namespace: downloads  
 spec:
   accessModes:
     - ReadWriteMany
