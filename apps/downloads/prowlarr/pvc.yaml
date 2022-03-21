@@ -4,9 +4,12 @@ metadata:
   labels:
     app: prowlarr
   name: pvc-prowlarr-config
+  namespace: downloads    
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
+  storageClassName: ""
   resources:
     requests:
-      storage: 100Mi
+      storage: 9Gi
+  volumeName: pv-nfs-prowlarr-config      
