@@ -30,7 +30,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: madara.home
-    path: "/volume1/share/emby/"
+    path: "/volume1/share/k8s-config/emby/"
   mountOptions:
     - nfsvers=4.1
 ---       
