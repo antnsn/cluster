@@ -25,7 +25,7 @@ metadata:
   name: pv-nfs-torrent-config
 spec:
   capacity:
-    storage: 10Gi
+    storage: 50Gi
   accessModes:
     - ReadWriteMany
   nfs:

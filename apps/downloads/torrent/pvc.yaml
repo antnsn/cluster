@@ -27,7 +27,7 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 9Gi
+      storage: 49Gi
   volumeName: pv-nfs-torrent-config
 ---
 apiVersion: v1
