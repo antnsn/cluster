@@ -16,24 +16,24 @@ spec:
   mountOptions:
     - nfsvers=4.1
 --- 
-# apiVersion: v1
-# kind: PersistentVolume
-# metadata:
-#   labels:
-#     app: emby
-#   namespace: emby
-#   name: pv-nfs-emby-tvshows
-# spec:
-#   capacity:
-#     storage: 10Gi
-#   accessModes:
-#     - ReadWriteMany
-#   nfs:
-#     server: madara.home
-#     path: "/volume1/share/tvshows/"
-#   mountOptions:
-#     - nfsvers=4.1
-# ---       
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    app: emby
+  namespace: emby
+  name: pv-nfs-emby-config
+spec:
+  capacity:
+    storage: 15Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: madara.home
+    path: "/volume1/share/emby/"
+  mountOptions:
+    - nfsvers=4.1
+---       
 # apiVersion: v1
 # kind: PersistentVolume
 # metadata:
