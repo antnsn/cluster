@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   labels:
     app: emby
-  namespace: emby
+  namespace: media
   name: pv-nfs-emby-data
 spec:
   capacity:
@@ -21,7 +21,7 @@ kind: PersistentVolume
 metadata:
   labels:
     app: emby
-  namespace: emby
+  namespace: media
   name: pv-nfs-emby-config
 spec:
   capacity:
@@ -39,7 +39,7 @@ spec:
 # metadata:
 #   labels:
 #     app: emby
-#   namespace: emby
+#   namespace: media
 #   name: pv-nfs-emby-media
 # spec:
 #   capacity:

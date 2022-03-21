@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   labels:
     app: emby
-  namespace: emby
+  namespace: media
   name: emby-ingress
   annotations:
     #kubernetes.io/ingress.class: nginx  

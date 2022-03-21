@@ -3,7 +3,7 @@
 # metadata:
 #   labels:
 #     app: emby
-#   namespace: emby
+#   namespace: media
 #   name: svc-emby
 # spec:
 #   ports:
@@ -18,7 +18,7 @@ kind: Service
 metadata:
   labels:
     app: emby
-  namespace: emby
+  namespace: media
   name: svc-emby
 spec:
   type: NodePort

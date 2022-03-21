@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: emby
-  namespace: emby
+  namespace: media
   name: pvc-emby-config
 spec:
   accessModes:
@@ -20,7 +20,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: emby
-  namespace: emby
+  namespace: media
   name: pvc-emby-transcode
 spec:
   accessModes:
@@ -34,7 +34,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: emby
-  namespace: emby
+  namespace: media
   name: pvc-emby-data
 spec:
   accessModes:
