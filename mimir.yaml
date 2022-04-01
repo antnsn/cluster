@@ -317,7 +317,7 @@ alertmanager:
   env: []
 
 distributor:
-  replicas: 1
+  replicas: 0
 
   service:
     annotations: {}
@@ -381,7 +381,7 @@ distributor:
   env: []
 
 ingester:
-  replicas: 3
+  replicas: 0
 
   statefulSet:
     enabled: true
@@ -474,7 +474,7 @@ ingester:
   env: []
 
 overrides_exporter:
-  replicas: 1
+  replicas: 0
 
   annotations: {}
 
@@ -526,7 +526,7 @@ overrides_exporter:
   terminationGracePeriodSeconds: 60
 
 ruler:
-  replicas: 1
+  replicas: 0
 
   service:
     annotations: {}
@@ -581,7 +581,7 @@ ruler:
   env: []
 
 querier:
-  replicas: 2
+  replicas: 0
 
   service:
     annotations: {}
@@ -647,7 +647,7 @@ querier:
   env: []
 
 query_frontend:
-  replicas: 1
+  replicas: 0
 
   service:
     annotations: {}
@@ -713,7 +713,7 @@ query_frontend:
   env: []
 
 store_gateway:
-  replicas: 1
+  replicas: 0
 
   service:
     annotations: {}
@@ -810,7 +810,7 @@ store_gateway:
 
 compactor:
   enabled: true
-  replicas: 1
+  replicas: 0
 
   service:
     annotations: {}
