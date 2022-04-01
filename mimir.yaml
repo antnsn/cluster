@@ -47,7 +47,7 @@ skipConfigSecret: false
 mimir:
   # -- Config file for Grafana Mimir, enables templates. Needs to be copied in full for modifications.
   config: |
-    multitenancy_enabled: false
+    multitenancy_enabled: true
 
     limits: {}
 
