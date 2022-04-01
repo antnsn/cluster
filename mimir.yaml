@@ -317,7 +317,7 @@ alertmanager:
   env: []
 
 distributor:
-  replicas: 0
+  replicas: 1
 
   service:
     annotations: {}
