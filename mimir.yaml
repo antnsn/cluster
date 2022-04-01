@@ -1127,7 +1127,7 @@ nginx:
   # Ingress configuration
   ingress:
     # -- Specifies whether an ingress for the nginx should be created
-    enabled: false
+    enabled: true
     # -- Ingress Class Name. MAY be required for Kubernetes versions >= 1.18
     # ingressClassName: nginx
     # -- Annotations for the nginx ingress
@@ -1138,7 +1138,7 @@ nginx:
         paths:
           - path: /
             # -- pathType (e.g. ImplementationSpecific, Prefix, .. etc.) might also be required by some Ingress Controllers
-            # pathType: Prefix
+            pathType: Prefix
     # -- TLS configuration for the nginx ingress
     tls:
       - secretName: loki-nginx-tls
