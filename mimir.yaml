@@ -1134,7 +1134,7 @@ nginx:
     annotations: {}
     # -- Hosts configuration for the nginx ingress
     hosts:
-      - host: nginx.loki.example.com
+      - host: cmcs-mimir.westeurope.cloudapp.azure.com
         paths:
           - path: /
             # -- pathType (e.g. ImplementationSpecific, Prefix, .. etc.) might also be required by some Ingress Controllers
