@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: emby
-          image: linuxserver/emby:amd64-latest
+          image: emby/embyserver:latest
           imagePullPolicy: IfNotPresent
           # resources:
           #   limits:
@@ -55,9 +55,9 @@ spec:
           env:      
            - name: TZ
              value: Europe/Oslo    
-           - name: PUID
+           - name: UID
              value: "0"
-           - name: PGID
+           - name: GID
              value: "0"                     
       volumes:
         - name: emby-config
