@@ -4,7 +4,7 @@ metadata:
   labels:
     app: emby
   namespace: media
-  name: pv-nfs-emby-data
+  name: pv-nfs-emby-tv
 spec:
   capacity:
     storage: 3000Gi
@@ -12,7 +12,25 @@ spec:
     - ReadWriteMany
   nfs:
     server: 10.0.0.3
-    path: "/volume1/"
+    path: "/volume1/tvshows"
+  mountOptions:
+    - nfsvers=4.1
+--- 
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    app: emby
+  namespace: media
+  name: pv-nfs-emby-movies
+spec:
+  capacity:
+    storage: 3000Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.0.0.3
+    path: "/volume1/movies"
   mountOptions:
     - nfsvers=4.1
 --- 
