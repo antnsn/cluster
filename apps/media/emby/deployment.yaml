@@ -68,9 +68,6 @@ spec:
         - name: emby-transcode
           persistentVolumeClaim:
             claimName: pvc-emby-transcode
-        - name: emby-data
-          persistentVolumeClaim:
-            claimName: pvc-emby-data   
         - name: emby-tv
           persistentVolumeClaim:
             claimName: pvc-emby-tvshows   
