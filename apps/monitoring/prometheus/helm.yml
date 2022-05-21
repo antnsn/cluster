@@ -13,6 +13,11 @@ metadata:
   name: prometheus
   namespace: monitoring    
 spec:
+  releaseName: prometheus
   chart:
     spec:
-      version: ">=1.0.0"
+      chart: prometheus
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+        namespace: monitoring
