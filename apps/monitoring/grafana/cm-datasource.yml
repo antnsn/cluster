@@ -14,3 +14,6 @@ data:
       isDefault: true
       editable: false
       version: 1
+
+
+ # url: http://prometheus-alertmanager.monitoring.svc.cluster.local
