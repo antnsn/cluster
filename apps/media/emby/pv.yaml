@@ -50,4 +50,5 @@ spec:
 #     server: 10.0.0.3
 #     path: "/volume1/share/"
 #   mountOptions:
-#     - nfsvers=4.1
+#     - nfsvers=4.1 
+#.
