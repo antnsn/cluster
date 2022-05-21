@@ -11,7 +11,7 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    server: madara.home
+    server: 10.0.0.3
     path: "/volume1/share/downloads"
   mountOptions:
     - nfsvers=4.1
@@ -29,7 +29,7 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    server: madara.home
+    server: 10.0.0.3
     path: "/volume1/share/k8s-config/torrent"
   mountOptions:
     - nfsvers=4.1
