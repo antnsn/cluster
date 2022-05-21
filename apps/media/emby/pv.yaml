@@ -12,7 +12,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: 10.0.0.3
-    path: "/volume1/share/"
+    path: "/volume1/"
   mountOptions:
     - nfsvers=4.1
 --- 
