@@ -16,7 +16,7 @@ spec:
   releaseName: prometheus-community/prometheus
   chart:
     spec:
-      chart: prometheus
+      chart: prometheus-community/prometheus
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
