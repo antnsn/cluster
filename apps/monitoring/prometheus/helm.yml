@@ -21,3 +21,4 @@ spec:
         kind: HelmRepository
         name: prometheus-community
         namespace: monitoring
+  interval: 5m        
