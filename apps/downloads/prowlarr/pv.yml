@@ -9,7 +9,7 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    server: madara.home
+    server: 10.0.0.3
     path: "/volume1/share/k8s-config/prowlarr"
   mountOptions:
     - nfsvers=4.1
