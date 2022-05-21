@@ -27,7 +27,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: 10.0.0.3
-    path: "/volume1/share/tvshows/"
+    path: "/volume1/tvshows/"
   mountOptions:
     - nfsvers=4.1
 --- 
@@ -45,7 +45,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: 10.0.0.3
-    path: "/volume1/share/downloads/"
+    path: "/volume1/downloads/"
   mountOptions:
     - nfsvers=4.1
 ---       
