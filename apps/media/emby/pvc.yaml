@@ -35,7 +35,7 @@ metadata:
   labels:
     app: emby
   namespace: media
-  name: pvc-emby-data
+  name: pvc-emby-movies
 spec:
   accessModes:
     - ReadWriteMany
@@ -43,5 +43,21 @@ spec:
   resources:
     requests:
       storage: 1500Gi
-  volumeName: pv-nfs-emby-data
+  volumeName: pv-nfs-emby-movies
+  ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: emby
+  namespace: media
+  name: pvc-emby-tvshows
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 1500Gi
+  volumeName: pv-nfs-emby-tvshows
 
