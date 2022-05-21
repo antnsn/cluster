@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: grafana-datasources
+  name: grafana-prometheus
   namespace: monitoring
 data:
   datasources.yaml: |-
@@ -20,17 +20,18 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: grafana-datasource
-  labels:
-     grafana_datasource: "1"
-     namespace: monitoring
+  name: grafana-alertmanager
+  namespace: monitoring
 data:
-  datasource-PRF1-Prometheus.yaml: |-
+  datasources.yaml: |-
     apiVersion: 1
+    deleteDatasources:
+      - name: prometheus
     datasources:
-      - name: alertmanager
-        type: prometheus
-        url: http://prometheus-alertmanager.monitoring.svc.cluster.local
-        access: Server
-        isDefault: true
-
+    - name: prometheus
+      type: prometheus
+      access: Server
+      url: http://prometheus-alertmanager.monitoring.svc.cluster.local
+      isDefault: true
+      editable: false
+      version: 1
