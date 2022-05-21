@@ -1,0 +1,38 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: grafana 
+  namespace: monitoring     
+spec:
+  interval: 5m
+  url: https://grafana.github.io/helm-charts
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: prometheus
+  namespace: monitoring    
+spec:
+  releaseName: prometheus
+  chart:
+    spec:
+      chart: grafana
+      sourceRef:
+        kind: HelmRepository
+        name: grafana 
+        namespace: monitoring
+  interval: 5m
+values:
+  ingress:
+    enabled: true
+    hosts:
+      - host: grafana.ting    
+  datasources: {}
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+      - name: Prometheus
+        type: prometheus
+        url: http://prometheus-server.monitoring.svc.cluster.local
+        access: proxy
+        isDefault: true         
