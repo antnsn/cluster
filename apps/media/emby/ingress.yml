@@ -17,4 +17,4 @@ spec:
           service:
             name: svc-emby
             port:
-              number: 8096
+              number: 30007
