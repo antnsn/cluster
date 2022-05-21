@@ -13,7 +13,7 @@ metadata:
   name: prometheus
   namespace: monitoring    
 spec:
-  releaseName: prometheus
+  releaseName: prometheus-community/prometheus
   chart:
     spec:
       chart: prometheus
