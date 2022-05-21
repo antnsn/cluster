@@ -13,5 +13,6 @@ metadata:
   name: prometheus
   namespace: monitoring    
 spec:
-  chart: prometheus-community/prometheus
-
+  chart:
+    spec:
+      version: ">=1.0.0"
