@@ -48,5 +48,11 @@ spec:
           type: prometheus
           url: http://prometheus-server.monitoring.svc.cluster.local
           access: proxy
-          isDefault: true     
+          isDefault: true
+    dashboards: {}
+      default:
+        prometheus-stats:
+          gnetId: 2
+          revision: 2
+          datasource: Prometheus               
           
