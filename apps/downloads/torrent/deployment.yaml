@@ -67,9 +67,9 @@ spec:
            - name: UMASK
              value: "000"                           
            - name: PGID
-             value: "33"           
+             value: "0"           
            - name: PUID
-             value: "33"              
+             value: "0"              
       volumes:
         - name: torrent-config
           persistentVolumeClaim:
