@@ -22,7 +22,14 @@ spec:
         name: grafana 
         namespace: monitoring
   interval: 5m
-values:
-  image:
-    repository: grafana/grafana
-    tag: latest
+  values:
+    image:
+      repository: grafana/grafana
+      tag: latest
+
+    service:
+      enabled: true
+      type: ClusterIP
+      port: 80
+      targetPort: 3000
+      portName: service
