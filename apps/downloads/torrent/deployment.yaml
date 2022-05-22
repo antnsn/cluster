@@ -1,83 +1,83 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   annotations:
-#   labels:
-#     app: torrent
-#   name: torrent
-#   namespace: downloads
-# spec:
-#   selector:
-#     matchLabels:
-#       app: torrent
-#   template:
-#     metadata:
-#       labels:
-#         app: torrent
-#     spec:
-#       containers:
-#         - image: binhex/arch-rtorrentvpn
-#           name: rtorrentvpn
-#           imagePullPolicy: IfNotPresent
-#           securityContext:
-#             capabilities:
-#               add: ["NET_ADMIN"]                    
-#           ports:
-#             - containerPort: 9080
-#               name: http-torrent             
-#             - containerPort: 9443
-#               name: https-torrent             
-#             - containerPort: 8118
-#               name: torrent
-#           volumeMounts:
-#             - mountPath: /data
-#               name: torrent-downloads
-#             - mountPath: /config
-#               name: torrent-config
-#             - mountPath: /etc/localtime
-#               name: pvc-torrent-time
-#               readOnly: true                                          
-#           env:
-#            - name: ADDITIONAL_PORTS
-#              value: "1234"
-#            - name: DEBUG
-#              value: "true"
-#            - name: ENABLE_AUTODL_IRSSI
-#              value: "no"
-#            - name: ENABLE_PRIVOXY
-#              value: "yes"
-#            - name: ENABLE_RPC2
-#              value: "yes"
-#            - name: ENABLE_RPC2_AUTH
-#              value: "no"
-#            - name: ENABLE_WEBUI_AUTH
-#              value: "no"
-#            - name: LAN_NETWORK
-#              value: 192.168.1.0/24
-#            - name: NAME_SERVERS
-#              value: 209.222.18.222,84.200.69.80,37.235.1.174,1.1.1.1,209.222.18.218,37.235.1.177,84.200.70.40,1.0.0.1
-#            - name: VPN_ENABLED
-#              value: "yes"
-#            - name: VPN_CLIENT
-#              value: openvpn
-#            - name: VPN_PROV
-#              value: airvpn
-#            - name: PHP_TZ
-#              value: "Europe/Oslo"  
-#            - name: UMASK
-#              value: "000"                           
-#            - name: PGID
-#              value: "0"           
-#            - name: PUID
-#              value: "0"              
-#       volumes:
-#         - name: torrent-config
-#           persistentVolumeClaim:
-#             claimName: pvc-torrent-config
-#         - name: torrent-downloads
-#           persistentVolumeClaim:
-#             claimName: pvc-torrent-downloads     
-#         - name: pvc-torrent-time
-#           persistentVolumeClaim:
-#             claimName: pvc-torrent-time
-#             readOnly: true
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: torrent
+  name: torrent
+  namespace: downloads
+spec:
+  selector:
+    matchLabels:
+      app: torrent
+  template:
+    metadata:
+      labels:
+        app: torrent
+    spec:
+      containers:
+        - image: binhex/arch-rtorrentvpn
+          name: rtorrentvpn
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            capabilities:
+              add: ["NET_ADMIN"]                    
+          ports:
+            - containerPort: 9080
+              name: http-torrent             
+            - containerPort: 9443
+              name: https-torrent             
+            - containerPort: 8118
+              name: torrent
+          volumeMounts:
+            - mountPath: /data
+              name: torrent-downloads
+            - mountPath: /config
+              name: torrent-config
+            - mountPath: /etc/localtime
+              name: pvc-torrent-time
+              readOnly: true                                          
+          env:
+           - name: ADDITIONAL_PORTS
+             value: "1234"
+           - name: DEBUG
+             value: "true"
+           - name: ENABLE_AUTODL_IRSSI
+             value: "no"
+           - name: ENABLE_PRIVOXY
+             value: "yes"
+           - name: ENABLE_RPC2
+             value: "yes"
+           - name: ENABLE_RPC2_AUTH
+             value: "no"
+           - name: ENABLE_WEBUI_AUTH
+             value: "no"
+           - name: LAN_NETWORK
+             value: 192.168.1.0/24
+           - name: NAME_SERVERS
+             value: 209.222.18.222,84.200.69.80,37.235.1.174,1.1.1.1,209.222.18.218,37.235.1.177,84.200.70.40,1.0.0.1
+           - name: VPN_ENABLED
+             value: "yes"
+           - name: VPN_CLIENT
+             value: openvpn
+           - name: VPN_PROV
+             value: airvpn
+           - name: PHP_TZ
+             value: "Europe/Oslo"  
+           - name: UMASK
+             value: "000"                           
+           - name: PGID
+             value: "0"           
+           - name: PUID
+             value: "0"              
+      volumes:
+        - name: torrent-config
+          persistentVolumeClaim:
+            claimName: pvc-torrent-config
+        - name: torrent-downloads
+          persistentVolumeClaim:
+            claimName: pvc-torrent-downloads     
+        - name: pvc-torrent-time
+          persistentVolumeClaim:
+            claimName: pvc-torrent-time
+            readOnly: true
