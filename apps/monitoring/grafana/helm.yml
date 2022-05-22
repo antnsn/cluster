@@ -23,4 +23,15 @@ spec:
         namespace: monitoring
   interval: 5m
 values:
-  path: ./values.yml
+    ingress:
+      enabled: true
+      hosts: grafana.ting
+    datasources:
+      datasources.yaml:
+        apiVersion: 1
+        datasources:
+        - name: Prometheus
+          type: prometheus
+          url: http://prometheus-server.monitoring.svc.cluster.local
+          access: proxy
+          isDefault: true
