@@ -63,8 +63,8 @@ spec:
             path: /var/lib/grafana/dashboards/default          
     dashboards:
       default:
-        prometheus-stats:
-          gnetId: 2
-          revision: 2
+        k8s-stats:
+          gnetId: 315
+          revision: 3
           datasource: Prometheus               
           
