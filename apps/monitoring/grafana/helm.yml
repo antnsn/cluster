@@ -32,4 +32,8 @@ spec:
           url: http://prometheus-server.monitoring.svc.cluster.local
           access: proxy
           isDefault: true
+    ingress:
+      enabled: true
+      hosts: 
+        - host: grafana.ting          
           
