@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: torrent
+  name: torrent
+  namespace: downloads
+spec:
+  selector:
+    matchLabels:
+      app: torrent
+  template:
+    metadata:
+      labels:
+        app: torrent
+    spec:
+      containers:
+        - image: binhex/arch-qbittorrentvpn
+          name: qbittorrentvpn
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            capabilities:
+              add: ["NET_ADMIN"]                    
+          ports:
+            - containerPort: 6881
+              name: torrent-tcp         
+            - containerPort: 6881
+              name: torrent-udp
+              protocol: UDP          
+            - containerPort: 8118
+              name: http-torrent                          
+            - containerPort: 8080
+              name: torrent
+          volumeMounts:
+            - mountPath: /data
+              name: torrent-downloads
+            - mountPath: /config
+              name: torrent-config
+            - mountPath: /etc/localtime
+              name: pvc-torrent-time
+              readOnly: true                                          
+          env:
+           - name: ENABLE_PRIVOXY
+             value: "yes"
+           - name: LAN_NETWORK
+             value: 192.168.1.0/24
+           - name: NAME_SERVERS
+             value: 209.222.18.222,84.200.69.80,37.235.1.174,1.1.1.1,209.222.18.218,37.235.1.177,84.200.70.40,1.0.0.1
+           - name: VPN_ENABLED
+             value: "yes"
+           - name: VPN_CLIENT
+             value: openvpn
+           - name: VPN_PROV
+             value: airvpn
+           - name: UMASK
+             value: "000"                           
+           - name: PGID
+             value: "0"           
+           - name: PUID
+             value: "0"              
+      volumes:
+        - name: torrent-config
+          persistentVolumeClaim:
+            claimName: pvc-torrent-config
+        - name: torrent-downloads
+          persistentVolumeClaim:
+            claimName: pvc-torrent-downloads     
+        - name: pvc-torrent-time
+          persistentVolumeClaim:
+            claimName: pvc-torrent-time
+            readOnly: true
