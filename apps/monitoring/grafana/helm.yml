@@ -22,7 +22,7 @@ spec:
         name: grafana 
         namespace: monitoring
   interval: 5m
-  values:
+  values: # values for grafana
     ingress:
       enabled: true
       hosts: grafana.ting
@@ -35,3 +35,4 @@ spec:
           url: http://prometheus-server.monitoring.svc.cluster.local
           access: proxy
           isDefault: true
+          
