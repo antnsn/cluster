@@ -63,11 +63,13 @@ spec:
            - name: VPN_PROV
              value: airvpn
            - name: PHP_TZ
-             value: "Europe/Oslo"                          
+             value: "Europe/Oslo"  
+           - name: UMASK
+             value: "000"                           
            - name: PGID
-             value: "0"           
+             value: "33"           
            - name: PUID
-             value: "0"              
+             value: "33"              
       volumes:
         - name: torrent-config
           persistentVolumeClaim:
