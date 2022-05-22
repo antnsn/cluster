@@ -32,3 +32,12 @@ spec:
       port: 80
       targetPort: 3000
       portName: service
+    ingress:
+      enabled: true
+      path: /
+      pathType: Prefix
+      hosts:
+        - host: grafana.ting   
+
+          
+fluxctl --k8s-fwd-ns=flux-system list-workloads          
