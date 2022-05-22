@@ -22,7 +22,10 @@ spec:
         name: grafana 
         namespace: monitoring
   interval: 5m
-  values: # values for grafana
+  values:
+    ingress:
+      hosts:
+        - host: grafana.ting   
     datasources:
       datasources.yaml:
         apiVersion: 1
@@ -31,9 +34,5 @@ spec:
           type: prometheus
           url: http://prometheus-server.monitoring.svc.cluster.local
           access: proxy
-          isDefault: true
-    ingress:
-      enabled: true
-      hosts: 
-        - host: grafana.ting          
+          isDefault: true     
           
