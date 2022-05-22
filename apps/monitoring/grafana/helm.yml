@@ -23,9 +23,24 @@ spec:
         namespace: monitoring
   interval: 5m
   values:
+
+    image:
+      repository: grafana/grafana
+      tag: latest
+
+    service:
+      enabled: true
+      type: ClusterIP
+      port: 80
+      targetPort: 3000
+      portName: service
+
     ingress:
+      path: /
+      pathType: Prefix
       hosts:
         - host: grafana.ting   
+  
     datasources:
       datasources.yaml:
         apiVersion: 1
@@ -36,3 +51,4 @@ spec:
           access: proxy
           isDefault: true     
           
+fluxctl --k8s-fwd-ns=flux-system list-workloads          
