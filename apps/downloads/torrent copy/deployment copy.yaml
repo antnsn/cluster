@@ -16,18 +16,21 @@ spec:
         app: torrent
     spec:
       containers:
-        - image: binhex/arch-rtorrentvpn
-          name: rtorrentvpn
+        - image: binhex/arch-qbittorrentvpn
+          name: qbittorrentvpn
           imagePullPolicy: IfNotPresent
           securityContext:
             capabilities:
               add: ["NET_ADMIN"]                    
           ports:
-            - containerPort: 9080
-              name: http-torrent             
-            - containerPort: 9443
-              name: https-torrent             
+            - containerPort: 6881
+              name: torrent-tcp         
+            - containerPort: 6881
+              name: torrent-udp
+              protocol: UDP          
             - containerPort: 8118
+              name: http-torrent                          
+            - containerPort: 8080
               name: torrent
           volumeMounts:
             - mountPath: /data
@@ -38,20 +41,8 @@ spec:
               name: pvc-torrent-time
               readOnly: true                                          
           env:
-           - name: ADDITIONAL_PORTS
-             value: "1234"
-           - name: DEBUG
-             value: "true"
-           - name: ENABLE_AUTODL_IRSSI
-             value: "no"
            - name: ENABLE_PRIVOXY
              value: "yes"
-           - name: ENABLE_RPC2
-             value: "yes"
-           - name: ENABLE_RPC2_AUTH
-             value: "no"
-           - name: ENABLE_WEBUI_AUTH
-             value: "no"
            - name: LAN_NETWORK
              value: 192.168.1.0/24
            - name: NAME_SERVERS
@@ -62,8 +53,6 @@ spec:
              value: openvpn
            - name: VPN_PROV
              value: airvpn
-           - name: PHP_TZ
-             value: "Europe/Oslo"  
            - name: UMASK
              value: "000"                           
            - name: PGID

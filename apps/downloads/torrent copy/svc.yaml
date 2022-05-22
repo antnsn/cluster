@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: torrent
+  namespace: downloads
+  name: svc-torrent
+spec:
+  ports:
+    - name: "http"
+      port: 8118
+      targetPort: http-torrent 
+    - name: "tcp"
+      port: 6881 
+      protocol: TCP
+      targetPort: torrent-tcp 
+    - name: "udp"
+      port: 6881
+      protocol: UDP
+      targetPort: torrent-udp 
+    - name: "torrent"
+      port: 8080
+      targetPort: torrent       
+  selector:
+    app: torrent   
