@@ -1,112 +1,112 @@
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: homeassistant
-  name: homeassistant
-  namespace: automation  
-spec:
-  selector:
-    matchLabels:
-      app: homeassistant
-  template:
-    metadata:
-      labels:
-        app: homeassistant
-    spec:
-      securityContext:
-        fsGroup: 472
-        supplementalGroups:
-          - 0
-      containers:
-        - name: homeassistant
-          image: homeassistant/home-assistant:latest
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 8123
-              name: http-ha
-              protocol: TCP
-          readinessProbe:
-            failureThreshold: 3
-            httpGet:
-              port: 8123
-              scheme: HTTP
-            initialDelaySeconds: 10
-            periodSeconds: 30
-            successThreshold: 1
-            timeoutSeconds: 2
-          livenessProbe:
-            failureThreshold: 3
-            initialDelaySeconds: 30
-            periodSeconds: 10
-            successThreshold: 1
-            tcpSocket:
-              port: 8123
-            timeoutSeconds: 1
-          volumeMounts:
-            - mountPath: /config
-              name: homeassistant-pv
-      volumes:
-        - name: homeassistant-pv
-          persistentVolumeClaim:
-            claimName: homeassistant-pvc
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: mqtt
-  name: mqtt
-  namespace: automation  
-spec:
-  selector:
-    matchLabels:
-      app: mqtt
-  template:
-    metadata:
-      labels:
-        app: mqtt
-    spec:
-      containers:
-        - name: mqtt
-          image: eclipse-mosquitto:latest
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 1883
-              name: mqtt-1883
-              protocol: TCP
-            - containerPort: 9001
-              name: mqtt-9001
-              protocol: TCP              
-          readinessProbe:        
-            tcpSocket:
-              port: 1883
-            initialDelaySeconds: 10              
-            periodSeconds: 10
-            successThreshold: 1
-            failureThreshold: 3            
-            timeoutSeconds: 2
-          livenessProbe:
-            initialDelaySeconds: 10
-            periodSeconds: 10          
-            successThreshold: 1
-            failureThreshold: 3            
-            timeoutSeconds: 2
-            tcpSocket:
-              port: 1883
-          volumeMounts:
-            - mountPath: /mosquitto/data
-              name: mqtt-pv
-            - mountPath: /mosquitto/log
-              name: mqtt-pv
-            - name: mosquitto-config
-              mountPath: /mosquitto/config/mosquitto.conf
-              subPath: mosquitto.conf                            
-      volumes:
-        - name: mqtt-pv
-          persistentVolumeClaim:
-            claimName: mqtt-pvc
-        - name: mosquitto-config
-          configMap:
-            name: mosquitto-config                        
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   labels:
+#     app: homeassistant
+#   name: homeassistant
+#   namespace: automation  
+# spec:
+#   selector:
+#     matchLabels:
+#       app: homeassistant
+#   template:
+#     metadata:
+#       labels:
+#         app: homeassistant
+#     spec:
+#       securityContext:
+#         fsGroup: 472
+#         supplementalGroups:
+#           - 0
+#       containers:
+#         - name: homeassistant
+#           image: homeassistant/home-assistant:latest
+#           imagePullPolicy: IfNotPresent
+#           ports:
+#             - containerPort: 8123
+#               name: http-ha
+#               protocol: TCP
+#           readinessProbe:
+#             failureThreshold: 3
+#             httpGet:
+#               port: 8123
+#               scheme: HTTP
+#             initialDelaySeconds: 10
+#             periodSeconds: 30
+#             successThreshold: 1
+#             timeoutSeconds: 2
+#           livenessProbe:
+#             failureThreshold: 3
+#             initialDelaySeconds: 30
+#             periodSeconds: 10
+#             successThreshold: 1
+#             tcpSocket:
+#               port: 8123
+#             timeoutSeconds: 1
+#           volumeMounts:
+#             - mountPath: /config
+#               name: homeassistant-pv
+#       volumes:
+#         - name: homeassistant-pv
+#           persistentVolumeClaim:
+#             claimName: homeassistant-pvc
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   labels:
+#     app: mqtt
+#   name: mqtt
+#   namespace: automation  
+# spec:
+#   selector:
+#     matchLabels:
+#       app: mqtt
+#   template:
+#     metadata:
+#       labels:
+#         app: mqtt
+#     spec:
+#       containers:
+#         - name: mqtt
+#           image: eclipse-mosquitto:latest
+#           imagePullPolicy: IfNotPresent
+#           ports:
+#             - containerPort: 1883
+#               name: mqtt-1883
+#               protocol: TCP
+#             - containerPort: 9001
+#               name: mqtt-9001
+#               protocol: TCP              
+#           readinessProbe:        
+#             tcpSocket:
+#               port: 1883
+#             initialDelaySeconds: 10              
+#             periodSeconds: 10
+#             successThreshold: 1
+#             failureThreshold: 3            
+#             timeoutSeconds: 2
+#           livenessProbe:
+#             initialDelaySeconds: 10
+#             periodSeconds: 10          
+#             successThreshold: 1
+#             failureThreshold: 3            
+#             timeoutSeconds: 2
+#             tcpSocket:
+#               port: 1883
+#           volumeMounts:
+#             - mountPath: /mosquitto/data
+#               name: mqtt-pv
+#             - mountPath: /mosquitto/log
+#               name: mqtt-pv
+#             - name: mosquitto-config
+#               mountPath: /mosquitto/config/mosquitto.conf
+#               subPath: mosquitto.conf                            
+#       volumes:
+#         - name: mqtt-pv
+#           persistentVolumeClaim:
+#             claimName: mqtt-pvc
+#         - name: mosquitto-config
+#           configMap:
+#             name: mosquitto-config                        

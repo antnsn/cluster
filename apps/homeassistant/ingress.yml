@@ -1,46 +1,46 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: homeassistant-ingress
-  namespace: automation  
-  annotations:
-    #kubernetes.io/ingress.class: nginx
-    #kubernetes.io/ingress.class: public    
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"    
-spec:
-  rules:
-  - host: homeassistant.ting
-    http:
-      paths:
-      - pathType: Prefix
-        path: /
-        backend:
-          service:
-            name: svc-homeassistant
-            port:
-              number: 8123
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: mqtt-ingress
-  namespace: automation  
-  annotations:
-    #kubernetes.io/ingress.class: nginx
-    kubernetes.io/ingress.class: public    
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"    
-spec:
-  rules:
-  - host: mqtt.ting
-    http:
-      paths:
-      - pathType: Prefix
-        path: /
-        backend:
-          service:
-            name: svc-mqtt
-            port:
-              number: 1883
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: homeassistant-ingress
+#   namespace: automation  
+#   annotations:
+#     #kubernetes.io/ingress.class: nginx
+#     #kubernetes.io/ingress.class: public    
+#     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+#     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"    
+# spec:
+#   rules:
+#   - host: homeassistant.ting
+#     http:
+#       paths:
+#       - pathType: Prefix
+#         path: /
+#         backend:
+#           service:
+#             name: svc-homeassistant
+#             port:
+#               number: 8123
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: mqtt-ingress
+#   namespace: automation  
+#   annotations:
+#     #kubernetes.io/ingress.class: nginx
+#     kubernetes.io/ingress.class: public    
+#     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+#     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"    
+# spec:
+#   rules:
+#   - host: mqtt.ting
+#     http:
+#       paths:
+#       - pathType: Prefix
+#         path: /
+#         backend:
+#           service:
+#             name: svc-mqtt
+#             port:
+#               number: 1883
               

@@ -1,36 +1,36 @@
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  labels:
-    app: homeassistant
-  namespace: automation 
-  name: pv-nfs-homeassistant-config
-spec:
-  capacity:
-    storage: 35Gi
-  accessModes:
-    - ReadWriteMany
-  nfs:
-    server: 10.0.0.3
-    path: "/volume1/share/k8s-config/ha-config"
-  mountOptions:
-    - nfsvers=4.1
----   
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  labels:
-    app: mqtt
-  namespace: automation 
-  name: pv-nfs-mqtt-config
-spec:
-  capacity:
-    storage: 11Gi
-  accessModes:
-    - ReadWriteMany
-  nfs:
-    server: 10.0.0.3
-    path: "/volume1/share/k8s-config/mqtt"
-  mountOptions:
-    - nfsvers=4.1
----   
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   labels:
+#     app: homeassistant
+#   namespace: automation 
+#   name: pv-nfs-homeassistant-config
+# spec:
+#   capacity:
+#     storage: 35Gi
+#   accessModes:
+#     - ReadWriteMany
+#   nfs:
+#     server: 10.0.0.3
+#     path: "/volume1/share/k8s-config/ha-config"
+#   mountOptions:
+#     - nfsvers=4.1
+# ---   
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   labels:
+#     app: mqtt
+#   namespace: automation 
+#   name: pv-nfs-mqtt-config
+# spec:
+#   capacity:
+#     storage: 11Gi
+#   accessModes:
+#     - ReadWriteMany
+#   nfs:
+#     server: 10.0.0.3
+#     path: "/volume1/share/k8s-config/mqtt"
+#   mountOptions:
+#     - nfsvers=4.1
+# ---   
