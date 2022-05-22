@@ -42,7 +42,7 @@ spec:
               readOnly: true                                          
           env:
            - name: ENABLE_PRIVOXY
-             value: "yes"
+             value: "no"
            - name: LAN_NETWORK
              value: 10.0.0.0/24, 10.43.0.0/12
            - name: NAME_SERVERS
