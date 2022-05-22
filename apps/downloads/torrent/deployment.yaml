@@ -63,9 +63,7 @@ spec:
            - name: VPN_PROV
              value: airvpn
            - name: PHP_TZ
-             value: "Europe/Oslo"  
-           - name: UMASK
-             value: "000"                           
+             value: "Europe/Oslo"                          
            - name: PGID
              value: "0"           
            - name: PUID
