@@ -49,7 +49,7 @@ spec:
           url: http://prometheus-server.monitoring.svc.cluster.local
           access: proxy
           isDefault: true
-    dashboards: {}
+    dashboards:
       default:
         prometheus-stats:
           gnetId: 2
