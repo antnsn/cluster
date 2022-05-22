@@ -23,6 +23,8 @@ spec:
         namespace: monitoring
   interval: 5m
   values:
+    adminUser: admin
+    adminPassword: admin  
     image:
       repository: grafana/grafana
       tag: latest
