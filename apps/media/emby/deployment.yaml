@@ -26,8 +26,7 @@ spec:
             limits:
               memory: "4096Mi"
               cpu: "4"          
-          #   limits:
-          #     nvidia.com/gpu: 1 # requesting 1 GPUs              
+              nvidia.com/gpu: 1 # requesting 1 GPUs              
        
           ports:
             - containerPort: 8096
