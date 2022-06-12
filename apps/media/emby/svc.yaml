@@ -1,17 +1,17 @@
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: emby
-  namespace: media
-  name: svc-emby
-spec:
-  ports:
-    - port: 8096
-      protocol: TCP
-      targetPort: http-emby
-  selector:
-    app: emby      
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   labels:
+#     app: emby
+#   namespace: media
+#   name: svc-emby
+# spec:
+#   ports:
+#     - port: 8096
+#       protocol: TCP
+#       targetPort: http-emby
+#   selector:
+#     app: emby      
 ---
 apiVersion: v1
 kind: Service
@@ -19,7 +19,7 @@ metadata:
   labels:
     app: emby
   namespace: media
-  name: svc-emby-external
+  name: svc-emby
 spec:
   type: NodePort
   selector:
