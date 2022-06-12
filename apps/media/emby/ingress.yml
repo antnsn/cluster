@@ -15,27 +15,6 @@ spec:
         path: /
         backend:
           service:
-            name: svc-emby-external
-            port:
-              number: 30007
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  labels:
-    app: emby
-  namespace: media
-  name: emby-ingress
-  annotations:
-spec:
-  rules:
-  - host: emby.ting
-    http:
-      paths:
-      - pathType: Prefix
-        path: /
-        backend:
-          service:
             name: svc-emby
             port:
-              number: 80              
+              number: 8096              
