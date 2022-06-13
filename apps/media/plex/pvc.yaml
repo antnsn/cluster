@@ -2,9 +2,9 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    app: emby
+    app: plex
   namespace: media
-  name: pvc-emby-config
+  name: pvc-plex-config
 spec:
   accessModes:
     - ReadWriteMany
@@ -12,15 +12,14 @@ spec:
   resources:
     requests:
       storage: 14Gi
-  volumeName: pv-nfs-emby-config      
+  volumeName: pv-nfs-plex-config      
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    app: emby
+    app: plex
   namespace: media
-  name: pvc-emby-transcode
 spec:
   accessModes:
     - ReadWriteOnce 
@@ -32,9 +31,9 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    app: emby
+    app: plex
   namespace: media
-  name: pvc-emby-movies
+  name: pvc-plex-movies
 spec:
   accessModes:
     - ReadWriteMany
@@ -42,15 +41,15 @@ spec:
   resources:
     requests:
       storage: 1500Gi
-  volumeName: pv-nfs-emby-movies
+  volumeName: pv-nfs-plex-movies
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    app: emby
+    app: plex
   namespace: media
-  name: pvc-emby-tvshows
+  name: pvc-plex-tvshows
 spec:
   accessModes:
     - ReadWriteMany
@@ -58,5 +57,5 @@ spec:
   resources:
     requests:
       storage: 1500Gi
-  volumeName: pv-nfs-emby-tvshows
+  volumeName: pv-nfs-plex-tvshows
 

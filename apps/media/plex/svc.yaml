@@ -2,32 +2,32 @@
 # kind: Service
 # metadata:
 #   labels:
-#     app: emby
+#     app: plex
 #   namespace: media
-#   name: svc-emby
+#   name: svc-plex
 # spec:
 #   ports:
 #     - port: 8096
 #       protocol: TCP
-#       targetPort: http-emby
+#       targetPort: http-plex
 #   selector:
-#     app: emby      
+#     app: plex      
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: emby
+    app: plex
   namespace: media
-  name: svc-emby
+  name: svc-plex
 spec:
   type: NodePort
   selector:
-    app: emby
+    app: plex
   ports:
       # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
     - port: 32400
-      targetPort: http-emby
+      targetPort: http-plex
       # Optional field
       # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
       nodePort: 32400
