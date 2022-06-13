@@ -20,6 +20,7 @@ metadata:
   labels:
     app: plex
   namespace: media
+  name: pvc-plex-transcode
 spec:
   accessModes:
     - ReadWriteOnce 
