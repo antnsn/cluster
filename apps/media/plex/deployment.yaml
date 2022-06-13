@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: plex
-          image: plexinc/pms-docker:latest
+          image: linuxserver/plex:latest
           imagePullPolicy: IfNotPresent
           resources:
             requests:
@@ -59,13 +59,13 @@ spec:
               name: plex-tv                          
             - mountPath: /movies
               name: plex-movies                 
-          env:      
-           - name: TZ
-             value: Europe/Oslo    
-           - name: UID
+          env:
+           - name: PGID
              value: "0"
-           - name: GID
-             value: "0"                     
+           - name: PUID
+             value: "0"
+           - name: TZ
+             value: Europe/Oslo                      
       volumes:
         - name: plex-config
           persistentVolumeClaim:
