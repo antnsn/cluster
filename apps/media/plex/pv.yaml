@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    app: plex
+  namespace: media
+  name: pv-nfs-plex-tvshows
+spec:
+  capacity:
+    storage: 3000Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.0.0.3
+    path: "/volume1/tvshows"
+  mountOptions:
+    - nfsvers=4.1
+--- 
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    app: plex
+  namespace: media
+  name: pv-nfs-plex-movies
+spec:
+  capacity:
+    storage: 3000Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.0.0.3
+    path: "/volume1/movies"
+  mountOptions:
+    - nfsvers=4.1
+--- 
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    app: plex
+  namespace: media
+  name: pv-nfs-plex-config
+spec:
+  capacity:
+    storage: 15Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.0.0.3
+    path: "/volume1/share/k8s-config/plex/"
+  mountOptions:
+    - nfsvers=4.1

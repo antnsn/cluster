@@ -1,0 +1,81 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: plex
+  namespace: media    
+  name: plex
+spec:
+  selector:
+    matchLabels:
+      app: plex
+  template:
+    metadata:
+      labels:
+        app: plex
+    spec:
+      containers:
+        - name: plex
+          image: plex/plexserver:latest
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "1"
+            limits:
+              memory: "4096Mi"
+              cpu: "4"          
+              nvidia.com/gpu: 1 # requesting 1 GPUs              
+       
+          ports:
+            - containerPort: 32400
+              name: http-plex
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /web/index.html#!/
+              port: 32400
+              scheme: HTTP
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 2
+          livenessProbe:
+            failureThreshold: 5
+            initialDelaySeconds: 50
+            periodSeconds: 20
+            successThreshold: 1
+            tcpSocket:
+              port: 32400
+            timeoutSeconds: 1
+          volumeMounts:
+            - mountPath: /config
+              name: plex-config
+            - mountPath: /transcode
+              name: plex-transcode              
+            - mountPath: /tvshows
+              name: plex-tv                          
+            - mountPath: /movies
+              name: plex-movies                 
+          env:      
+           - name: TZ
+             value: Europe/Oslo    
+           - name: UID
+             value: "0"
+           - name: GID
+             value: "0"                     
+      volumes:
+        - name: plex-config
+          persistentVolumeClaim:
+            claimName: pvc-plex-config
+        - name: plex-transcode
+          persistentVolumeClaim:
+            claimName: pvc-plex-transcode
+        - name: plex-tv
+          persistentVolumeClaim:
+            claimName: pvc-plex-tvshows   
+        - name: plex-movies
+          persistentVolumeClaim:
+            claimName: pvc-plex-movies                                                      

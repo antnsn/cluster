@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    app: plex
+  namespace: media
+  name: plex-ingress
+  annotations:
+spec:
+  rules:
+  - host: plex.ting
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: svc-plex
+            port:
+              number: 32400              
